@@ -9,7 +9,7 @@ for (let gpioNo = Gpio.MIN_GPIO; gpioNo <= Gpio.MAX_GPIO; gpioNo += 1) {
   );
 }
 
-const motion = new Gpio(7, {mode: Gpio.INPUT, alert:true});
+const motion = new Gpio(4, {mode: Gpio.INPUT, alert:true});
 
 console.log("starting")
 
