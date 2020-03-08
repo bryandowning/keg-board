@@ -1,51 +1,61 @@
-# base image is stratolinux/baseimage-docker
-FROM stratolinux/baseimage-docker:0.9.19
-MAINTAINER Eric Young <eric@stratolinux.com>
-ENV APPDIR /opt/mylar
+# set base os
+FROM phusion/baseimage:0.9.16
 
-# Use baseimage-docker's init system.
+# Set environment variables for my_init, terminal and apache
+ENV DEBIAN_FRONTEND=noninteractive HOME="/root" TERM=xterm APACHE_RUN_USER=www-data APACHE_RUN_GROUP=www-data APACHE_LOG_DIR="/var/log/apache2" APACHE_LOCK_DIR="/var/lock/apache2" APACHE_PID_FILE="/var/run/apache2.pid"
 CMD ["/sbin/my_init"]
 
-# To get rid of error messages like "debconf: unable to initialize frontend: Dialog":
-RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+# add local files
+ADD src/ /root/
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu trusty multiverse" >> /etc/apt/sources.list
-RUN apt-get -qy update && apt-get -qy upgrade
+# expose port(s)
+EXPOSE 80 3306
 
-# ports
-EXPOSE 80
+# set volume
+VOLUME /config
+
+# startup files
+RUN mkdir -p /etc/service/apache && \
+mkdir -p /etc/service/mariadb && \
+mv /root/apache.sh /etc/service/apache/run && \
+mv /root/firstrun.sh /etc/my_init.d/firstrun.sh && \
+mv /root/mariadb.sh etc/service/mariadb/run && \
+chmod +x /etc/service/apache/run && \
+chmod +x /etc/my_init.d/firstrun.sh && \
+chmod +x etc/service/mariadb/run && \
 
 # Fix a Debianism of the nobody's uid being 65534
-RUN usermod -u 99 nobody && \
-    usermod -g 100 nobody
+usermod -u 99 nobody && \
+usermod -g 100 nobody && \
 
-# install the php5.x repo
-RUN locale-gen en_US.UTF-8
-RUN LC_ALL=en_US.UTF-8  add-apt-repository ppa:ondrej/php
+# make database folder for local storage
+mkdir -p /config/databases && \
+chown -R nobody:users /config && \
 
 # update apt and install dependencies etc....
-RUN apt-get update && \
-    apt-get install -qy git wget unzip apache2 php5.6 php5.6-mysql php5.6-mbstring
+apt-get update && \
+apt-get install -qy wget unzip mariadb-server apache2 php5 php5-mysql && \
+
+# Tweak my.cnf
+sed -i -e 's#\(bind-address.*=\).*#\1 0.0.0.0#g' /etc/mysql/my.cnf && \
+sed -i -e 's#\(log_error.*=\).*#\1 /config/databases/mysql_safe.log#g' /etc/mysql/my.cnf && \
+sed -i -e 's/\(user.*=\).*/\1 nobody/g' /etc/mysql/my.cnf && \
+echo '[mysqld]' > /etc/mysql/conf.d/innodb_file_per_table.cnf && \
+echo 'innodb_file_per_table' >> /etc/mysql/conf.d/innodb_file_per_table.cnf && \
 
 # Enable apache mods.
-RUN a2enmod php5.6 && \
-    a2enmod rewrite
+a2enmod php5 && \
+a2enmod rewrite && \
 
 # Update the PHP.ini file, enable <? ?> tags and quieten logging.
-RUN sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php/5.6/apache2/php.ini && \
-    sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PARSE/" /etc/php/5.6/apache2/php.ini
+sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php5/apache2/php.ini && \
+sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PARSE/" /etc/php5/apache2/php.ini && \
+mv /root/apache-config.conf /etc/apache2/sites-enabled/000-default.conf && \
 
 # fetch raspberry pints
-RUN cd /var/www && \
-    git clone http://github.com/tssgery/RaspberryPints.git -b 0.3.0 Pints && \
-    chown -R www-data:www-data /var/www/Pints
+cd /root && \
+wget --no-check-certificate https://github.com/RaspberryPints/RaspberryPints/archive/2.0.1.zip && \
+unzip 2.0.1.zip && \
 
-VOLUME /var/www/Pints/data
-
-COPY etc/ /etc/
-
-RUN chmod +x /etc/my_init.d/*
-RUN find /etc/service -name run -exec chmod +x {} \;
-
-# Clean up APT when done.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# clean up lists
+rm -rf /var/lib/apt/lists /usr/share/man /usr/share/doc
