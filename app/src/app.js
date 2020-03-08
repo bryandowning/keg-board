@@ -5,8 +5,6 @@ const motion = new Gpio(4, {mode: Gpio.INPUT, alert:true});
 
 console.log("starting")
 
-motionDetector(motion.digitalRead(), null);
-
 const motionDetector = (level, tick) => {
 	console.log("ALERT level: " + level + " tick: " + tick);
 
@@ -17,6 +15,7 @@ const motionDetector = (level, tick) => {
 	}
 };
 
+motionDetector(motion.digitalRead(), null);
 motion.on('alert', motionDetector);
 
 console.log("started")
