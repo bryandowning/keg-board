@@ -1,20 +1,22 @@
 const Gpio = require('pigpio').Gpio;
 
-for (let gpioNo = Gpio.MIN_GPIO; gpioNo <= Gpio.MAX_GPIO; gpioNo += 1) {
-  const gpio = new Gpio(gpioNo);
-
-  console.log('GPIO ' + gpioNo + ':' +
-    ' mode=' + gpio.getMode() +
-    ' level=' + gpio.digitalRead()
-  );
-}
-
+const led = new Gpio(17, {mode: Gpio.OUTPUT});
 const motion = new Gpio(4, {mode: Gpio.INPUT, alert:true});
 
 console.log("starting")
 
-motion.on('alert', (level, tick) => {
+motionDetector(motion.digitalRead(), null);
+
+const motionDetector = (level, tick) => {
 	console.log("ALERT level: " + level + " tick: " + tick);
-});
+
+	if (level === 0) {
+		led.digitalWrite(0);
+	} else if (level === 1) {
+		led.digitalWrite(1);
+	}
+};
+
+motion.on('alert', motionDetector);
 
 console.log("started")
