@@ -11,7 +11,7 @@ services:
     restart: always
     privileged: true
     environment:
-      - WPE_URL=app:3000
+      - WPE_URL=http://app:3000
     links:
       - app
     depends_on:
