@@ -3,9 +3,11 @@
  *
  */
 
-var raspi = require('raspi-io');
 var five = require('johnny-five');
-var board = new five.Board({io: new raspi()});
+var Raspi = require("raspi-io").RaspiIO;
+var board = new five.Board({
+  io: new Raspi()
+});
 
 board.on('ready', function() {
 	console.log('board is ready');

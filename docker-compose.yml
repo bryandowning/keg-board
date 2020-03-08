@@ -3,6 +3,7 @@ services:
   app:
     build: ./app
     restart: always
+    privileged: true
     ports:
       - 80:80
   wpe:
