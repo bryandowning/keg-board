@@ -5,14 +5,16 @@ services:
     restart: always
     privileged: true
     ports:
-      - 8080:8080
+      - 3000:3000
   wpe:
     build: ./wpe
     restart: always
     privileged: true
     environment:
-      - WPE_URL="http://app:8080/"
+      - WPE_URL=app:3000
     links:
       - app
     depends_on:
       - app
+    ports:
+      - 8080:8080
