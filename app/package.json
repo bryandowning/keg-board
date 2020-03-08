@@ -10,8 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "johnny-five": "^1.4.0",
-    "raspi-io": "^11.0.0",
-    "i2c": "*"
+    "pigpio": "*"
   }
 }
