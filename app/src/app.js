@@ -22,7 +22,7 @@ board.on('ready', function() {
 	// proximal area is disrupted, generally by some form of movement
 	motion.on('motionstart', function() {
 		console.log('motionstart');
-=	});
+	});
 
 	// 'motionend' events are fired following a 'motionstart' event
 	// when no movement has occurred in X ms

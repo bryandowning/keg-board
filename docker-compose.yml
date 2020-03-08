@@ -1,7 +1,15 @@
 version: '2'
 services:
-  node-app:
+  app:
     build: ./app
     restart: always
     ports:
       - 80:80
+  wpe:
+    build: ./wpe
+    restart: always
+    privileged: true
+    links:
+      - app
+    ports:
+      - 8080:8080
