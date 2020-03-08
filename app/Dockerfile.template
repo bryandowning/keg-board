@@ -1,3 +1,6 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-node:10-stretch-build as build
+RUN npm install --only=production i2c
+
 # base-image for node on any machine using a template variable,
 # see more about dockerfile templates here: https://www.balena.io/docs/learn/develop/dockerfile/#dockerfile-templates
 # and about balena base images here: https://www.balena.io/docs/reference/base-images/base-images/
@@ -20,6 +23,7 @@ RUN chmod +x /etc/svscan/pigpiod/run
 WORKDIR /usr/src/app
 
 # Copies the package.json first for better cache on later pushes
+COPY --from=build ./node_modules ./node_modules
 COPY package.json package.json
 
 # This install npm dependencies on the balena build server,
