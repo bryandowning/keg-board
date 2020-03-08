@@ -4,7 +4,7 @@
 FROM balenalib/%%BALENA_MACHINE_NAME%%-node:10-stretch-run
 
 #RUN install_packages build-essential daemontools git python
-RUN install_packages pigpio python
+RUN install_packages build-essential pigpio python
 
 #WORKDIR /opt
 #RUN git config --global http.sslVerify false
