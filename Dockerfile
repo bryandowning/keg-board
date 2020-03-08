@@ -19,10 +19,10 @@ RUN mkdir -p /etc/service/apache && \
 mkdir -p /etc/service/mariadb && \
 mv /root/apache.sh /etc/service/apache/run && \
 mv /root/firstrun.sh /etc/my_init.d/firstrun.sh && \
-mv /root/mariadb.sh etc/service/mariadb/run && \
+mv /root/mariadb.sh /etc/service/mariadb/run && \
 chmod +x /etc/service/apache/run && \
 chmod +x /etc/my_init.d/firstrun.sh && \
-chmod +x etc/service/mariadb/run
+chmod +x /etc/service/mariadb/run
 
 # Fix a Debianism of the nobody's uid being 65534
 RUN usermod -u 99 nobody && \
