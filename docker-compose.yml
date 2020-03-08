@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  db:
+    image: mysql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: raspberrypints
+      MYSQL_DATABASE: raspberrypints
+      MYSQL_USER: raspberrypints
+      MYSQL_PASSWORD: raspberrypints
+
+  raspberrypints:
+    image: pabloguti/raspberrypints:latest
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+    links:
+     - db
