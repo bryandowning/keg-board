@@ -9,15 +9,15 @@ services:
     restart: always
     privileged: true
     environment:
-      - WPE_URL=http://ui:3000
+      - WPE_URL=http://ui-server:3000
     links:
-      - ui
+      - ui-server
     depends_on:
-      - ui
+      - ui-server
     ports:
       - 8080:8080
-  ui:
-    build: ./ui
+  ui-server:
+    build: ./ui-server
     restart: always
     ports:
       - 3000:3000

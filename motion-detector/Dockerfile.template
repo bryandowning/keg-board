@@ -1,38 +1,17 @@
-# base-image for node on any machine using a template variable,
-# see more about dockerfile templates here: https://www.balena.io/docs/learn/develop/dockerfile/#dockerfile-templates
-# and about balena base images here: https://www.balena.io/docs/reference/base-images/base-images/
 FROM balenalib/%%BALENA_MACHINE_NAME%%-node:10-stretch-run
+MAINTAINER Jeremy White <jeremy.ro.white@gmail.com>
 
-#RUN install_packages build-essential daemontools git python
 RUN install_packages build-essential pigpio python
 
-#WORKDIR /opt
-#RUN git config --global http.sslVerify false
-#RUN git clone https://github.com/joan2937/pigpio
-#WORKDIR /opt/pigpio
-#RUN make
-#RUN make install
-#RUN ln -s /usr/local/lib/libpigpio.so /usr/lib/libpigpio.so
-#RUN mkdir -p  /etc/svscan/pigpiod
-#RUN echo "#!/bin/bash\nif [ ! -f /var/run/pigpio.pid ]; then\n	echo 'Starting'\n	exec /opt/pigpio/pigpiod\nfi" > /etc/svscan/pigpiod/run
-#RUN chmod +x /etc/svscan/pigpiod/run
-
-# Defines our working directory in container
 WORKDIR /usr/src/app
 
-# Copies the package.json first for better cache on later pushes
 COPY package.json package.json
 COPY package-lock.json package-lock.json
 
-# This install npm dependencies on the balena build server,
-# making sure to clean up the artifacts it creates in order to reduce the image size.
 RUN JOBS=MAX npm install --production --unsafe-perm && npm cache verify && rm -rf /tmp/*
 
-# This will copy all files in our root to the working  directory in the container
-COPY . ./
+COPY . .
 
-# Enable udevd so that plugged dynamic hardware devices show up in our container.
 ENV UDEV=1
 
-# server.js will run when container starts up on the device
 CMD ["npm", "start"]
