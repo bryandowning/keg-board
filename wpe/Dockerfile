@@ -8,7 +8,7 @@ RUN chmod +x /wpe-init
 COPY wait-for-it.sh /wait-for-it.sh
 RUN chmod +x /wait-for-it.sh
 
-CMD [ "/wait-for-it.sh $WPE_HOST_AND_PORT -- /wpe-init" ]
+CMD [ "/wait-for-it.sh app:3000 -- /wpe-init" ]
 
 ENV TOHORA_VERSION=0.3.2
 RUN wget -O tohora.tgz \
