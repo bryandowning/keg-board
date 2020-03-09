@@ -32,12 +32,17 @@ const turnDisplayOn = () => {
 
 const motionDetector = (level, tick) => {
 	if (level === 0) {
-		timer = setInterval(turnDisplayOff, timeout);
+		if (timer != null) {
+			clearTimeout(timer);
+			timer = null;
+		}
+
+		timer = setTimeout(turnDisplayOff, timeout);
 	} else if (level === 1) {
 		turnDisplayOn();
 
 		if (timer != null) {
-			clearInterval(timer);
+			setTimeout(timer);
 			timer = null;
 		}
 	}
