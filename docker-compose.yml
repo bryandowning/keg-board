@@ -11,7 +11,6 @@ services:
     restart: always
     privileged: true
     environment:
-      - WPE_HOST_AND_PORT=app:3000
       - WPE_URL=http://app:3000
     links:
       - app
