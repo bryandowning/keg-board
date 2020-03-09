@@ -1,0 +1,86 @@
+table{
+	width: 100%;
+	border-collapse: collapse;
+}
+table th,
+table td{
+	border-left: 1px white dashed;
+	padding: 1px 5px;
+	text-align: center;
+	vertical-align: top;
+	color: white;
+}
+table th:first-child,
+table td:first-child{
+	border-left: none;
+}
+table thead{
+	background-color: rgba(153,153,153,.3);
+	padding: 0px;
+	margin: auto;
+}
+table thead th{
+	min-height:35px;
+	font: .65em Georgia;
+	color: white;
+	font-weight: bold;
+	vertical-align: top;
+}
+table .tap-num{
+	width: 50px;
+}
+table .srm{
+	width: 125px;
+}
+table .ibu{
+	width: 125px;
+}
+table td.name{
+	text-align: left;
+	padding: 5px;
+}
+table .abv{
+	width: 125px;
+	text-align: center;
+	vertical-align: middle;
+}
+table .keg{
+	width: 150px;
+}
+
+table td.tap-num{
+	vertical-align: middle;
+}
+
+table h3{
+	font: .8em Georgia;
+	-webkit-margin-before: 5px;
+	-webkit-margin-after: 5px;
+	text-align:center;
+}
+table h2{
+	font: 1em Georgia;
+	-webkit-margin-before: 0px;
+	-webkit-margin-after: 0px;
+	text-align:center;
+}
+table h1{
+	color: white;
+	opacity:1;
+	display:block;
+	font: 1.5em Georgia;
+	font-weight: bold;
+}
+table .subhead{
+	width:100%;
+	font: .9em Georgia;
+	text-align:left;
+}
+table p{
+	font: .8em Georgia;
+	color: #A0A0A0;
+	margin-top:20px;
+}
+.altrow{
+	background-color: rgba(153,153,153,.23);
+}

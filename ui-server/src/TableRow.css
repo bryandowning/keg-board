@@ -1,0 +1,128 @@
+
+
+.srm-container{
+	position: relative;
+	height: 100px;
+	width: 55px;
+	margin: 0 auto;
+}
+
+.srm-indicator{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+
+	-webkit-mask-image: url(img/srm/pint-mask.png);
+	-o-mask-image: url(img/srm/pint-mask.png);
+	-moz-mask-image: url(img/srm/pint-mask.png);
+	mask-image: url(img/srm/pint-mask.png);
+}
+
+.srm-stroke{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 2;
+
+	background: url(img/srm/pint-stroke.png)
+}
+
+
+.ibu-container{
+	position: relative;
+	height:100px;
+	width:53px;
+	margin: 0 auto;
+}
+.ibu-indicator{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: url(img/ibu/stroke.png) no-repeat bottom left;
+}
+.ibu-indicator .ibu-full{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: url(img/ibu/full.png) no-repeat bottom left;
+}
+
+.ibu-max{
+	position: absolute;
+	top: -5px;
+	left: 35px;
+}
+.abv-container{
+	position: relative;
+	height: 100px;
+	width: 115px;
+	margin: 8px auto;
+}
+.abv-indicator{
+	display: inline-block;
+	position: relative;
+	height:100%;
+	width:50%;
+	background: url(img/abv/stroke.png) no-repeat bottom left;
+}
+.abv-indicator .abv-full{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: url(img/abv/full.png) no-repeat bottom left;
+}
+.abv-offthechart{
+	position: absolute;
+	bottom: -2px;
+	left: 8px;
+	height: 55px;
+	width: 114px;
+	background: url(img/abv/offthechart.png) no-repeat bottom left;
+}
+
+.keg-container{
+	position: relative;
+	height: 100px;
+	width: 67px;
+	margin: 8px auto;
+}
+
+.keg-indicator{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: url(img/keg/stroke.png) no-repeat bottom left;
+}
+.keg-indicator .keg-full{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: url(img/keg/full.png) no-repeat bottom left;
+}
+.keg-indicator .keg-empty{
+	background-image: url(img/keg/empty.png);
+}
+.keg-indicator .keg-red{
+	background-image: url(img/keg/red.png);
+}
+.keg-indicator .keg-orange{
+	background-image: url(img/keg/orange.png);
+}
+.keg-indicator .keg-yellow{
+	background-image: url(img/keg/yellow.png);
+}
+.keg-indicator .keg-green{
+	background-image: url(img/keg/green.png);
+}
