@@ -5,7 +5,7 @@ COPY udev-rules/ /etc/udev/rules.d/
 COPY wpe-init /wpe-init
 RUN chmod +x /wpe-init
 
-CMD [ "/wpe-init" ]
+CMD [ "./wait-for-it.sh $WPE_URL -- /wpe-init" ]
 
 ENV TOHORA_VERSION=0.3.2
 RUN wget -O tohora.tgz \
