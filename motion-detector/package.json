@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "pigpio": "*"
+    "pigpio": "^3.0.0"
   }
 }
