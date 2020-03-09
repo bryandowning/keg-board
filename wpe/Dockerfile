@@ -5,9 +5,6 @@ COPY udev-rules/ /etc/udev/rules.d/
 COPY wpe-init /wpe-init
 RUN chmod +x /wpe-init
 
-COPY wait-for-it.sh /wait-for-it.sh
-RUN chmod +x /wait-for-it.sh
-
 CMD [ "sh", "-c", "sleep 5; /wpe-init" ]
 
 ENV TOHORA_VERSION=0.3.2
