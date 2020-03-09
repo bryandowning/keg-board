@@ -1,5 +1,4 @@
 const Gpio = require('pigpio').Gpio;
-const http = require("http");
 const fs = require("fs");
 
 // const led = new Gpio(17, {mode: Gpio.OUTPUT});
@@ -37,13 +36,3 @@ const motionDetector = (level, tick) => {
 
 motionDetector(motion.digitalRead());
 motion.on('alert', motionDetector);
-
-const server = http.createServer((request, response) => {
-	response.writeHead(200, {
-		'Content-Type': 'text/plain'
-	});
-	response.write("Hello, world!");
-	response.end();
-});
-
-server.listen(3000);
