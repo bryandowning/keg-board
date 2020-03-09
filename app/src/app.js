@@ -3,16 +3,31 @@ const Gpio = require('pigpio').Gpio;
 const led = new Gpio(17, {mode: Gpio.OUTPUT});
 const motion = new Gpio(4, {mode: Gpio.INPUT, alert:true});
 const http = require("http");
+const fs = require("fs");
 
-console.log("starting")
+// value = 0: display on
+// value = 1: display off
+const writeToDisplayPower = (value) => {
+	fs.writeFile("/sys/class/backlight/rpi_backlight/bl_power", "" + value);
+}
+
+const turnDisplayOff = () => {
+	console.log("Motion sensor trigger: turn display off");
+	led.digitalWrite(0);
+	writeToDisplayPower(1);
+};
+
+const turnDisplayOn = () => {
+	console.log("Motion sensor trigger: turn display on");
+	led.digitalWrite(1);
+	writeToDisplayPower(0);
+};
 
 const motionDetector = (level, tick) => {
-	console.log("ALERT level: " + level + " tick: " + tick);
-
 	if (level === 0) {
-		led.digitalWrite(0);
+		turnDisplayOff();
 	} else if (level === 1) {
-		led.digitalWrite(1);
+		turnDisplayOn();
 	}
 };
 
@@ -28,5 +43,3 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(3000);
-
-console.log("started")
