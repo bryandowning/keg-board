@@ -1,8 +1,9 @@
 const Gpio = require('pigpio').Gpio;
-const led = new Gpio(17, {mode: Gpio.OUTPUT});
-const motion = new Gpio(4, {mode: Gpio.INPUT, alert:true});
 const http = require("http");
 const fs = require("fs");
+
+// const led = new Gpio(17, {mode: Gpio.OUTPUT});
+const motion = new Gpio(4, {mode: Gpio.INPUT, alert:true});
 
 const writeToDisplayPower = (value) => {
 	const data = "" + value;
@@ -16,13 +17,13 @@ const writeToDisplayPower = (value) => {
 
 const turnDisplayOff = () => {
 	console.log("Motion sensor trigger: turn display off");
-	led.digitalWrite(0);
+	// led.digitalWrite(0);
 	writeToDisplayPower(1);
 };
 
 const turnDisplayOn = () => {
 	console.log("Motion sensor trigger: turn display on");
-	led.digitalWrite(1);
+	// led.digitalWrite(1);
 	writeToDisplayPower(0);
 };
 
