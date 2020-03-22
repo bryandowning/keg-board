@@ -4,7 +4,7 @@ const fs = require("fs");
 // const led = new Gpio(17, {mode: Gpio.OUTPUT});
 const motion = new Gpio(4, {mode: Gpio.INPUT, alert:true});
 
-const timeout = 2 * 60 * 1000; // two minutes
+const timeout = process.env.SCREEN_TIMEOUT_MS || 2 * 60 * 1000; // two minutes
 var timer = null;
 var displayState = "unknown";
 
