@@ -1,86 +1,113 @@
-table{
+.table{
 	width: 100%;
 	border-collapse: collapse;
 }
-table th,
-table td{
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.row.header .column,
+.row .column {
 	border-left: 1px white dashed;
 	padding: 1px 5px;
 	text-align: center;
 	vertical-align: top;
 	color: white;
 }
-table th:first-child,
-table td:first-child{
+
+.row.header .column:first-child,
+.row .column:first-child {
 	border-left: none;
 }
-table thead{
+
+.row.header {
 	background-color: rgba(153,153,153,.3);
 	padding: 0px;
 	margin: auto;
 }
-table thead th{
+
+.row.header .column {
 	min-height:35px;
 	font: .65em Georgia;
 	color: white;
 	font-weight: bold;
 	vertical-align: top;
 }
-table .tap-num{
-	width: 50px;
+
+.column.tap-num {
+	flex: 50;
+	vertical-align: middle;
 }
-table .srm{
-	width: 125px;
+
+.column.srm {
+	flex: 125;
 }
-table .ibu{
-	width: 125px;
+
+.column.ibu {
+	flex: 125;
 }
-table td.name{
-	text-align: left;
-	padding: 5px;
-}
-table .abv{
-	width: 125px;
+
+.column.abv {
+	flex: 125;
 	text-align: center;
 	vertical-align: middle;
 }
-table .keg{
-	width: 150px;
+
+.column.keg {
+	flex: 150;
 }
 
-table td.tap-num{
-	vertical-align: middle;
+.column.name {
+	flex: 400;
+	text-align: left;
+	padding: 5px;
 }
 
-table h3{
+.row h3{
 	font: .8em Georgia;
 	-webkit-margin-before: 5px;
 	-webkit-margin-after: 5px;
 	text-align:center;
 }
-table h2{
+
+.row h2{
 	font: 1em Georgia;
 	-webkit-margin-before: 0px;
 	-webkit-margin-after: 0px;
 	text-align:center;
 }
-table h1{
+
+.row h1{
 	color: white;
 	opacity:1;
 	display:block;
 	font: 1.5em Georgia;
 	font-weight: bold;
 }
-table .subhead{
+
+.row .subhead{
 	width:100%;
 	font: .9em Georgia;
 	text-align:left;
 }
-table p{
+
+.row p{
 	font: .8em Georgia;
 	color: #A0A0A0;
 	margin-top:20px;
 }
+
 .altrow{
 	background-color: rgba(153,153,153,.23);
 }

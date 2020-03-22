@@ -18,38 +18,19 @@ function App() {
   return (
     <div>
       <Header />
-      <table>
-  			<thead>
-  				<tr>
-  					<th className="tap-num">
-  						TAP<br />#
-  					</th>
 
-  					<th className="srm">
-  						GRAVITY<hr />COLOR
-  					</th>
+      <div className="table">
+  			<div className="row header">
+  				<div className="column tap-num">TAP<br />#</div>
+					<div className="column srm">GRAVITY<hr />COLOR</div>
+					<div className="column ibu">BALANCE<hr />BITTERNESS</div>
+          <div className="column name">BEER NAME &nbsp; &amp; &nbsp; STYLE<hr />TASTING NOTES</div>
+          <div className="column abv">CALORIES<hr />ALCOHOL</div>
+					<div className="column keg">POURED<hr />REMAINING</div>
+        </div>
 
-  					<th className="ibu">
-  						BALANCE<hr />BITTERNESS
-  					</th>
-
-  					<th className="name">
-  						BEER NAME &nbsp; &amp; &nbsp; STYLE<hr />TASTING NOTES
-  					</th>
-
-  					<th className="abv">
-  						CALORIES<hr />ALCOHOL
-  					</th>
-
-  					<th className="keg">
-  						POURED<hr />REMAINING
-  					</th>
-  				</tr>
-        </thead>
-        <tbody>
         {rows}
-        </tbody>
-      </table>
+      </div>
     </div>
   );
 }

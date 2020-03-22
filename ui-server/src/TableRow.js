@@ -111,12 +111,12 @@ const TableRow = (props) => {
   const beerLeft = (beer.remainAmount * 128).toFixed();
 
   return (
-    <tr key={beer.id}>
-			<td className="tap-num">
+    <div className="row" key={beer.id}>
+			<div className="column tap-num">
 				<span className="tapcircle">{beer.tapNumber}</span>
-			</td>
+			</div>
 
-			<td className="srm">
+			<div className="column srm">
 				<h3>{beer.og} OG</h3>
 
 				<div className="srm-container">
@@ -125,9 +125,9 @@ const TableRow = (props) => {
 				</div>
 
 				<h2>{beer.srm} SRM</h2>
-			</td>
+			</div>
 
-			<td className="ibu">
+			<div className="column ibu">
 				<h3>
 					{bugu} BU:GU
 				</h3>
@@ -136,30 +136,30 @@ const TableRow = (props) => {
 					<div className="ibu-indicator"><div className="ibu-full" style={{height: ibuHeight + "%"}}></div></div>
 				</div>
 				<h2>{beer.ibu} IBU</h2>
-			</td>
+			</div>
 
-  		<td className="name">
+  		<div className="column name">
   			<h1>{beer.beername}</h1>
   			<h2 className="subhead">{beer.style}</h2>
   			<p>{beer.notes}</p>
-  		</td>
+  		</div>
 
-      <td className="abv">
+      <div className="column abv">
         <h3>{calories} kCal</h3>
         <div className="abv-container">
           {abvContent}
         </div>
         <h2>{abv.toFixed(1)}%</h2>
-      </td>
+      </div>
 
-    	<td className="keg">
+    	<div className="column keg">
     		<h3>{beerPoured} fl oz poured</h3>
     		<div className="keg-container">
     			<div className="keg-indicator"><div className={kegClass} style={{height: percentRemaining + "%"}}></div></div>
     		</div>
     		<h2>{beerLeft} fl oz left</h2>
-    	</td>
-  	</tr>
+    	</div>
+  	</div>
   )
 }
 

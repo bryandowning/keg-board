@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <div className="header clearfix">
+    <div className="HeaderContainer clearfix">
       <div className="HeaderLeft">
       <a href="admin/admin.php"><img src="" height="100" alt="" /></a>
       </div>
