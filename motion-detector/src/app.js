@@ -13,7 +13,7 @@ const writeToDisplayPower = (value) => {
 	try {
 		fs.writeFileSync("/sys/class/backlight/rpi_backlight/bl_power", data);
 	} catch (err) {
-		console.error(error);
+		console.error("Error writing to display power: " + error);
 		displayState = "unknown";
 	}
 	displayState = value === 0 ? "on" : "off";
