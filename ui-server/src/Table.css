@@ -1,6 +1,10 @@
-.table{
+.table {
 	width: 100%;
 	border-collapse: collapse;
+}
+
+.table .row:nth-child(even) {
+	background-color: rgba(153,153,153,.23);
 }
 
 .row {
@@ -74,21 +78,21 @@
 	padding: 5px;
 }
 
-.row h3{
+.row h3 {
 	font: .8em Georgia;
 	-webkit-margin-before: 5px;
 	-webkit-margin-after: 5px;
 	text-align:center;
 }
 
-.row h2{
+.row h2 {
 	font: 1em Georgia;
 	-webkit-margin-before: 0px;
 	-webkit-margin-after: 0px;
 	text-align:center;
 }
 
-.row h1{
+.row h1 {
 	color: white;
 	opacity:1;
 	display:block;
@@ -96,18 +100,14 @@
 	font-weight: bold;
 }
 
-.row .subhead{
+.row .subhead {
 	width:100%;
 	font: .9em Georgia;
 	text-align:left;
 }
 
-.row p{
+.row p {
 	font: .8em Georgia;
 	color: #A0A0A0;
 	margin-top:20px;
-}
-
-.altrow{
-	background-color: rgba(153,153,153,.23);
 }
