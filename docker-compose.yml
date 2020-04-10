@@ -24,7 +24,7 @@ services:
     ports:
       - 3000:3000
   beer-db:
-    image: arm64v8/postgres:12.2-alpine
+    image: arm32v7/postgres:12.2-alpine
     restart: always
     volumes:
       - database-data:/var/lib/postgresql/data/
