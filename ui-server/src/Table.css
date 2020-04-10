@@ -1,113 +1,132 @@
-.table {
-	width: 100%;
-	border-collapse: collapse;
-}
-
-.table .row:nth-child(even) {
-	background-color: rgba(153,153,153,.23);
-}
-
-.row {
+/*
+ * Define the widths: play around with these to get a best fit.
+ */
+/*
+ * Basic styles, good for a large display. Everything fits in
+ * one row, no wrapping. All text based cells grow equally.
+ */
+.table-row {
   display: flex;
+  display: -webkit-flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  -webkit-flex-direction: row;
+  flex-wrap: no-wrap;
+  -webkit-flex-wrap: no-wrap;
   width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
-
-.column {
+.wrapper {
   display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-grow: 0;
+  -webkit-flex-grow: 0;
+}
+.text-4,
+.text-2,
+.text {
+  flex-grow: 1;
+  -webkit-flex-grow: 1;
+  font-size: 2vw;
+}
+.text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 20px;
+}
+.text {
+  width: 180px;
+}
+.num {
+  width: 80px;
+  text-align: right;
+}
+/*
+ * Media queries: optimize for different screen widths.
+ */
+@media all and (max-width: 1100px) {
+  .text-2,
+  .num-2 {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+  }
+  .text-2 div,
+  .num-2 div {
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
+    width: 100%;
+  }
+  .text-2 {
+    width: 180px;
+  }
+  .num-2 {
+    width: 80px;
+  }
+}
+@media all and (max-width: 580px) {
+  .text-4,
+  .num-4 {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+  }
+  .text-4 div,
+  .num-4 div {
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
+    width: 100%;
+  }
+  .text-4 {
+    width: 180px;
+  }
+  .num-4 {
+    width: 80px;
+  }
+}
+@media all and (max-width: 320px) {
+  .table-row {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+  }
+  .table-row div {
+    flex-grow: 0;
+    -webkit-flex-grow: 0;
+    width: 100%;
+  }
+  .num {
+    text-align: left;
+  }
+}
+/*
+ * General good-look styles, not mandatory.
+ */
+/* body {
+  font-size: 20px;
+} */
+.table-row {
+  border-bottom: 2px solid #e0e0e0;
+  border-collapse: collapse;
+  padding-top: 5px;
+}
+.table-row.header {
+  background-color: #FFEEDB;
+  font-weight: bold;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+/* Some borders to show the behaviour. Uncomment to see it in action */
+/*
+.text-2, .num-2 {
+  border: 1px solid green;
+  padding: 2px;
+  margin: 2px;
 }
 
-.row.header .column,
-.row .column {
-	border-left: 1px white dashed;
-	padding: 1px 5px;
-	text-align: center;
-	vertical-align: top;
-	color: white;
+.text-4, .num-4 {
+  border: 1px solid red;
+  margin: 2px;
 }
-
-.row.header .column:first-child,
-.row .column:first-child {
-	border-left: none;
-}
-
-.row.header {
-	background-color: rgba(153,153,153,.3);
-	padding: 0px;
-	margin: auto;
-}
-
-.row.header .column {
-	min-height:35px;
-	font: .65em Georgia;
-	color: white;
-	font-weight: bold;
-	vertical-align: top;
-}
-
-.column.tap-num {
-	flex: 50;
-	vertical-align: middle;
-}
-
-.column.srm {
-	flex: 125;
-}
-
-.column.ibu {
-	flex: 125;
-}
-
-.column.abv {
-	flex: 125;
-	text-align: center;
-	vertical-align: middle;
-}
-
-.column.keg {
-	flex: 150;
-}
-
-.column.name {
-	flex: 400;
-	text-align: left;
-	padding: 5px;
-}
-
-.row h3 {
-	font: .8em Georgia;
-	-webkit-margin-before: 5px;
-	-webkit-margin-after: 5px;
-	text-align:center;
-}
-
-.row h2 {
-	font: 1em Georgia;
-	-webkit-margin-before: 0px;
-	-webkit-margin-after: 0px;
-	text-align:center;
-}
-
-.row h1 {
-	color: white;
-	opacity:1;
-	display:block;
-	font: 1.5em Georgia;
-	font-weight: bold;
-}
-
-.row .subhead {
-	width:100%;
-	font: .9em Georgia;
-	text-align:left;
-}
-
-.row p {
-	font: .8em Georgia;
-	color: #A0A0A0;
-	margin-top:20px;
-}
+*/
+/*# sourceMappingURL=Table.css.map */

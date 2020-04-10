@@ -11,11 +11,17 @@
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0"
   },
+  "devDependencies": {
+    "less": "^3.9.0",
+    "less-watch-compiler": "^1.13.0",
+    "concurrently": "^4.1.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev-start": "concurrently --kill-others \"less-watch-compiler --config less-watcher.config.json\" \"react-scripts start\""
   },
   "eslintConfig": {
     "extends": "react-app"

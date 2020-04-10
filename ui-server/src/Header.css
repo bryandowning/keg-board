@@ -13,7 +13,7 @@
 .HeaderLeft {
 	height: 100px;
 	font: .85em Georgia;
-	color: white;
+	/* color: white; */
 	font-weight: bold;
 	text-align: left;
   order: 0;
@@ -28,7 +28,7 @@
 	text-align: center;
 	font-size: 1em;
 	font: 1em Georgia;
-	color: white;
+	/* color: white; */
 	padding-top:25px;
   order: 0;
   flex-grow: 1;
@@ -39,7 +39,7 @@
 
 .HeaderRight {
 	font: .85em Georgia;
-	color: white;
+	/* color: white; */
 	font-weight: bold;
 	text-align: right;
   order: 0;
