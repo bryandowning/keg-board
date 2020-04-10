@@ -28,5 +28,5 @@ services:
     restart: always
     ports:
       - '5432:5432'
-    volumes:
-      - database-data:/var/lib/postgresql/data/
+    # volumes:
+    #   - database-data:/var/lib/postgresql/data/
