@@ -1,4 +1,6 @@
 version: '2'
+volumes:
+  database-data:
 services:
   motion-detector:
     build: ./motion-detector
@@ -24,3 +26,5 @@ services:
   beer-db:
     image: postgres:12.2-alpine
     restart: always
+    volumes:
+      - database-data:/var/lib/postgresql/data/
