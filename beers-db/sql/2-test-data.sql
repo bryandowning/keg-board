@@ -8,7 +8,7 @@ INSERT INTO
 
 INSERT INTO
   beers (beername, style, notes, og, fg, srm, ibu, startAmount, amountPoured, remainAmount, tapNumber)
-  VALUES ('Toned-Down Janet\'s Brown', 'American Brown Ale', 'Slightly modified Janet\'s Brown recipe, adapted for liquid malt extract and a less agressive hop schedule', 1.062, 1.012, 19, 31, 5, 1, 4, 3);
+  VALUES ('Toned-Down Janet''s Brown', 'American Brown Ale', 'Slightly modified Janet''s Brown recipe, adapted for liquid malt extract and a less agressive hop schedule', 1.062, 1.012, 19, 31, 5, 1, 4, 3);
 
 INSERT INTO
   beers (beername, style, notes, og, fg, srm, ibu, startAmount, amountPoured, remainAmount, tapNumber)
