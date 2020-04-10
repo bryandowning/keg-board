@@ -21,3 +21,6 @@ services:
     restart: always
     ports:
       - 3000:3000
+  beer-db:
+    image: postgres:12.2-alpine
+    restart: always
