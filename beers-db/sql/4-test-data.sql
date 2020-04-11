@@ -1,6 +1,8 @@
+BEGIN;
+
 INSERT INTO
   beers (beername, style, notes, og, fg, srm, ibu, startAmount, amountPoured, remainAmount, tapNumber)
-  VALUES ('Cherrywood Smoked Lager', 'Rauchbier', 'Smokey, amber German style of lager', 1.050, 1.017, 14, 22, 5, 0.2, 4.8, 1);
+  VALUES ('Cherrywood Smoked Lager', 'Rauchbier', 'An amber German lager brewed with Cherrywood smoked malt as 23% of the grain bill', 1.050, 1.017, 14, 22, 5, 0.2, 4.8, 1);
 
 INSERT INTO
   beers (beername, style, tapNumber)
@@ -12,8 +14,10 @@ INSERT INTO
 
 INSERT INTO
   beers (beername, style, notes, og, fg, srm, ibu, startAmount, amountPoured, remainAmount, tapNumber)
-  VALUES ('Old Rasputin Clone', 'Imperial Stout', 'Inspired by the Old Rasputin recipe, with slightly modified grain bill', 1.096, 1.028, 31, 29, 5, 0.1, 4.9, 4);
+  VALUES ('Old Rasputin Clone', 'Imperial Stout', 'Inspired by the Old Rasputin recipe, with a slightly modified grain bill', 1.096, 1.028, 31, 29, 5, 0.1, 4.9, 4);
 
 INSERT INTO
   beers (beername, style, tapNumber)
   VALUES ('EMPTY', 'N/A', 5);
+
+COMMIT;

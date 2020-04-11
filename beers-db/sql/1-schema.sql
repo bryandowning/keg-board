@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS beers;
+
 CREATE TABLE beers (
   id SERIAL PRIMARY KEY,
   beername varchar(255) NOT NULL,
