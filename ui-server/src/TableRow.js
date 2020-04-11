@@ -1,6 +1,4 @@
 import React from 'react';
-import "./Table.css";
-import "./TableRow.css";
 
 const srmToRGBLookupTable = [
   "#FFE699", "#FFE699",
@@ -53,12 +51,9 @@ const TableRow = (props) => {
   } else if (beer.srm > 40) {
     srmNumber = 40;
   }
-  const srmStyle = srmNumber !== "" ? srmToRGBLookupTable[Math.round(srmNumber)] : srmToRGBLookupTable[1]; // TODO: right way to check empty string?
+  const srmBackgroundColor = srmNumber !== "" ? srmToRGBLookupTable[Math.round(srmNumber)] : srmToRGBLookupTable[1]; // TODO: right way to check empty string?
+  const srmTextColor = srmNumber > 13 ? "white" : "default";
   const bugu = beer.og > 1 ? (beer.ibu / ((beer.og - 1) * 1000)).toFixed(2) : "0.00"; // TODO: format to two decimal places
-  const ibuHeight = beer.ibu > 100 ? 100 : beer.ibu;
-
-  var kegImgClass = "";
-  var percentRemaining = beer.remainAmount / beer.startAmount * 100;
 
   var calFromAlc = (1881.22 * (beer.fg * (beer.og - beer.fg))) / (1.775 - beer.og);
   var calFromCarbs = 3550.0 * beer.fg * ((0.1808 * beer.og) + (0.8192 * beer.fg) - 1.0004);
@@ -69,125 +64,26 @@ const TableRow = (props) => {
   }
 
   const calories = (calFromAlc + calFromCarbs).toFixed();
-
   const abv = (beer.og - beer.fg) * 131;
-  var numCups = 0;
-  var remaining = abv * 20;
-  var abvContent;
-
-  do {
-    var level;
-    if (remaining < 100) {
-      level = remaining;
-    } else {
-      level = 100;
-    }
-    abvContent = <div className="abv-indicator"><div className="abv-full" style={{height:level + "%"}}></div></div>
-    remaining = remaining - level;
-    numCups++;
-  } while (remaining > 0 && numCups < 2);
-
-  if (remaining > 0) {
-    abvContent = <div className="abv-offthechart"></div>;
-  }
-
-  if (beer.remainAmount <= 0 ) {
-    kegImgClass = "keg-empty";
-    percentRemaining = 100;
-  } else if (percentRemaining < 15) {
-    kegImgClass = "keg-red";
-  } else if (percentRemaining < 25) {
-    kegImgClass = "keg-orange";
-  } else if (percentRemaining < 45) {
-    kegImgClass = "keg-yellow";
-  } else if (percentRemaining < 100) {
-    kegImgClass = "keg-green";
-  } else if (percentRemaining >= 100) {
-    kegImgClass = "keg-full";
-  }
-  const kegClass = "keg-full " + kegImgClass;
-
   const beerPoured = ((beer.startAmount - beer.remainAmount) * 128).toFixed();
   const beerLeft = (beer.remainAmount * 128).toFixed();
 
   return (
-    <div className="table-row" key={beer.id}>
-      <div className="wrapper text">{beer.tapNumber}</div>
-      <div className="wrapper text-2">
-        <div className="wrapper text">{beer.og} OG</div>
-        <div className="wrapper text">{beer.srm} SRM</div>
-      </div>
-      <div className="wrapper text-2">
-        <div className="wrapper text">{bugu} BU:GU</div>
-        <div className="wrapper text">{beer.ibu} IBU</div>
-      </div>
-      <div className="wrapper text-2">
-        <div className="wrapper text">{beer.beername}</div>
-        <div className="wrapper text">{beer.style}</div>
-      </div>
-      <div className="wrapper text">{beer.notes}</div>
-      <div className="wrapper text-2">
-        <div className="wrapper text">{calories} kCal</div>
-        <div className="wrapper text">{abv.toFixed(1)}% ABV</div>
-      </div>
-      <div className="wrapper text-2">
-        <div className="wrapper text">{beerPoured} oz</div>
-        <div className="wrapper text">{beerLeft} oz</div>
-      </div>
-    </div>
+    <tr style={{backgroundColor: srmBackgroundColor, color: srmTextColor}}>
+      <td>{beer.tapNumber}</td>
+      <td>{beer.og} OG</td>
+      <td>{beer.srm} SRM</td>
+      <td>{bugu} BU:GU</td>
+      <td>{beer.ibu} IBU</td>
+      <td>{beer.beername}</td>
+      <td>{beer.style}</td>
+      <td>{beer.notes}</td>
+      <td>{calories} kCal</td>
+      <td>{abv.toFixed(1)}% ABV</td>
+      <td>{beerPoured} oz</td>
+      <td>{beerLeft} oz</td>
+    </tr>
   )
-
-  // return (
-  //   <div className="row" key={beer.id}>
-	// 		<div className="column tap-num">
-	// 			<span className="tapcircle">{beer.tapNumber}</span>
-	// 		</div>
-  //
-	// 		<div className="column srm">
-	// 			<h3>{beer.og} OG</h3>
-  //
-	// 			<div className="srm-container">
-	// 				<div className="srm-indicator" style={{backgroundColor: srmStyle}}></div>
-	// 				<div className="srm-stroke"></div>
-	// 			</div>
-  //
-	// 			<h2>{beer.srm} SRM</h2>
-	// 		</div>
-  //
-	// 		<div className="column ibu">
-	// 			<h3>
-	// 				{bugu} BU:GU
-	// 			</h3>
-  //
-	// 			<div className="ibu-container">
-	// 				<div className="ibu-indicator"><div className="ibu-full" style={{height: ibuHeight + "%"}}></div></div>
-	// 			</div>
-	// 			<h2>{beer.ibu} IBU</h2>
-	// 		</div>
-  //
-  // 		<div className="column name">
-  // 			<h1>{beer.beername}</h1>
-  // 			<h2 className="subhead">{beer.style}</h2>
-  // 			<p>{beer.notes}</p>
-  // 		</div>
-  //
-  //     <div className="column abv">
-  //       <h3>{calories} kCal</h3>
-  //       <div className="abv-container">
-  //         {abvContent}
-  //       </div>
-  //       <h2>{abv.toFixed(1)}%</h2>
-  //     </div>
-  //
-  //   	<div className="column keg">
-  //   		<h3>{beerPoured} fl oz poured</h3>
-  //   		<div className="keg-container">
-  //   			<div className="keg-indicator"><div className={kegClass} style={{height: percentRemaining + "%"}}></div></div>
-  //   		</div>
-  //   		<h2>{beerLeft} fl oz left</h2>
-  //   	</div>
-  // 	</div>
-  // )
 }
 
 export default TableRow;
