@@ -62,7 +62,9 @@ const BeerRow = (props) => {
   }
 
   const calories = (calFromAlc + calFromCarbs).toFixed();
-  const abv = (beer.og - beer.fg) * 131;
+  // TODO: update to Balling's formula for calculating ABV
+  // source: Brewer's Friend https://www.brewersfriend.com/2011/06/16/alcohol-by-volume-calculator-updated/
+  const abv = (76.08 * (beer.og-beer.fg) / (1.775-beer.og)) * (beer.fg / 0.794);
   const beerPoured = ((beer.startAmount - beer.remainAmount) * 128).toFixed();
   const beerLeft = (beer.remainAmount * 128).toFixed();
 
