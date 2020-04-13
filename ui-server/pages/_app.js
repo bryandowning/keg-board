@@ -4,7 +4,7 @@ import GlobalStyles from '../styles/global';
 import themes from '../styles/themes';
 
 export default function App({ Component, pageProps }) {
-  const defaultTheme = 'dark';
+  const defaultTheme = 'light';
   return (
     <ThemeProvider theme={themes[defaultTheme]}>
       <>
