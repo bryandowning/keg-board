@@ -21,12 +21,25 @@ services:
   ui-server:
     build: ./ui-server
     restart: always
+    depends_on:
+      - beer-db-broker
+    links:
+      - beer-db-broker
     ports:
       - 3000:3000
   beer-db:
     build: ./beers-db
     restart: always
     ports:
-      - '5432:5432'
+      - 5432:5432
     # volumes:
     #   - database-data:/var/lib/postgresql/data/
+  beer-db-broker:
+    build: ./beers-db-broker
+    restart: always
+    depends_on:
+      - beer-db
+    links:
+      - beer-db
+    ports:
+      - 8888:8888

@@ -1,0 +1,21 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-node:12-stretch-build AS build
+MAINTAINER Jeremy White <jeremy.ro.white@gmail.com>
+
+WORKDIR /app
+
+COPY package.json package.json
+COPY package-lock.json package-lock.json
+
+RUN JOBS=MAX npm install --production --unsafe-perm && npm cache verify && rm -rf /tmp/*
+
+FROM balenalib/%%BALENA_MACHINE_NAME%%-node:12-stretch-run
+MAINTAINER Jeremy White <jeremy.ro.white@gmail.com>
+
+WORKDIR /usr/src/app
+
+COPY --from=build /app/node_modules .
+COPY . .
+
+EXPOSE 8888
+
+CMD ["npm", "start"]
