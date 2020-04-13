@@ -6,7 +6,9 @@
     "aedes": "^0.41.0",
     "next": "^9.3.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "sanitize.css": "^11.0.0",
+    "styled-components": "^5.1.0"
   },
   "scripts": {
     "dev": "next",
@@ -26,6 +28,8 @@
     ]
   },
   "devDependencies": {
-    "prettier": "2.0.4"
+    "babel-plugin-styled-components": "^1.10.7",
+    "prettier": "2.0.4",
+    "raw-loader": "^4.0.0"
   }
 }
