@@ -60,6 +60,15 @@ export function typeBodyPrimary() {
   `;
 }
 
+// Primary: 14 @ 1920
+export function typeBodySupplemental() {
+  return css`
+    font-size: calc(${rem(12)} + ${vw(2)});
+    font-weight: normal;
+    line-height: 1.14286;
+  `;
+}
+
 // Label: 12 @ 1920
 export function typeStat() {
   return css`

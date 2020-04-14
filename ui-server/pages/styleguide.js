@@ -1,10 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import * as colors from '../styles/colors';
-import { typeBodyLead, typeLabel, typeStat } from '../styles/typography';
-
 import Swatch from '../components/Swatch';
+
+import { beerColors } from '../utils/beer';
+
+import * as colors from '../styles/colors';
+import { typeBodyLead, typeBodySupplemental, typeLabel, typeStat } from '../styles/typography';
 
 const StyledGuide = styled.div`
   padding: 0 2em;
@@ -12,6 +14,10 @@ const StyledGuide = styled.div`
 
 const Lead = styled.p`
   ${typeBodyLead()}
+`;
+
+const Supplemental = styled.p`
+  ${typeBodySupplemental()}
 `;
 
 const Stat = styled.p`
@@ -24,8 +30,18 @@ const Label = styled.p`
 
 function Styleguide() {
   const {
-    typeRefs: { h1, h2, h3, h4, lead, primary, stat, label },
-    typeSizes: { h1Size, h2Size, h3Size, h4Size, leadSize, primarySize, statSize, labelSize },
+    typeRefs: { h1, h2, h3, h4, lead, primary, supplemental, stat, label },
+    typeSizes: {
+      h1Size,
+      h2Size,
+      h3Size,
+      h4Size,
+      leadSize,
+      primarySize,
+      supplementalSize,
+      statSize,
+      labelSize,
+    },
   } = useTypeResizer();
 
   // Sort colors alphabetically by name
@@ -40,9 +56,18 @@ function Styleguide() {
       <h1>Style Guide</h1>
       <h2>Color</h2>
 
+      <h3>Default</h3>
+
       <ul>
         {colorsSorted.map(([key, value]) => (
           <Swatch key={key} name={key} colorValue={value} />
+        ))}
+      </ul>
+
+      <h3>Beer Colors</h3>
+      <ul>
+        {beerColors.map((color, i) => (
+          <Swatch key={i + color} name={i} colorValue={color} />
         ))}
       </ul>
 
@@ -61,6 +86,8 @@ function Styleguide() {
 
       <p ref={primary}>P, {primarySize} Primary body copy.</p>
 
+      <Supplemental ref={supplemental}>P, {supplementalSize} Supplemental body copy.</Supplemental>
+
       <h3>Other</h3>
       <Stat ref={stat}>P, {statSize} Stat.</Stat>
 
@@ -78,6 +105,7 @@ function useTypeResizer() {
   const h4 = useRef(null);
   const lead = useRef(null);
   const primary = useRef(null);
+  const supplemental = useRef(null);
   const stat = useRef(null);
   const label = useRef(null);
 
@@ -87,6 +115,7 @@ function useTypeResizer() {
   const [h4Size, setH4Size] = useState(0);
   const [leadSize, setLeadSize] = useState(0);
   const [primarySize, setPrimarySize] = useState(0);
+  const [supplementalSize, setSupplementalSize] = useState(0);
   const [statSize, setStatSize] = useState(0);
   const [labelSize, setLabelSize] = useState(0);
 
@@ -105,6 +134,7 @@ function useTypeResizer() {
     setH4Size(getFontSize(h4.current));
     setLeadSize(getFontSize(lead.current));
     setPrimarySize(getFontSize(primary.current));
+    setSupplementalSize(getFontSize(supplemental.current));
     setStatSize(getFontSize(stat.current));
     setLabelSize(getFontSize(label.current));
   }
@@ -121,6 +151,7 @@ function useTypeResizer() {
       h4,
       lead,
       primary,
+      supplemental,
       stat,
       label,
     },
@@ -131,6 +162,7 @@ function useTypeResizer() {
       h4Size,
       leadSize,
       primarySize,
+      supplementalSize,
       statSize,
       labelSize,
     },
