@@ -4,7 +4,7 @@ import BeerTap from '../components/BeerTap';
 import BeerTitle from '../components/BeerTitle';
 import BeerStats from '../components/BeerStats';
 import BeerStat from '../components/BeerStat';
-import Notes from '../components/Notes';
+import BeerNotes from '../components/BeerNotes';
 
 import beers from '../data/beers';
 import { calcABV, calcBalance, calcCalories, getBeerColorPair } from '../utils/beer';
@@ -80,7 +80,7 @@ export default function Index() {
                 </BeerStat>
               </BeerStats>
             )}
-            {notes && <Notes>{notes}</Notes>}
+            {notes && <BeerNotes>{notes}</BeerNotes>}
           </BeerRow>
         )
       )}
