@@ -11,7 +11,7 @@ export default styled.div`
   grid-template-columns: auto 3fr 1fr;
   align-items: center;
   max-width: 1440px;
-  padding: 0.25em 0.25em;
+  padding: 0.2em 0.25em;
   margin: 0 auto;
   background-color: ${({ isActive, isEmpty }) =>
     !isActive || isEmpty ? grayLight : 'transparent'};

@@ -1,20 +1,22 @@
 import styled from 'styled-components';
 
 import { vw } from '../styles/helpers';
+import { typeHeadingH3 } from '../styles/typography';
 
 const StyledHeader = styled.header`
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: ${vw(200)};
-  min-height: 75px;
+  height: ${vw(56)};
+  min-height: 48px;
   background-image: url('/images/headers/beer.jpg');
   background-repeat: no-repeat;
-  background-position: center bottom;
+  background-position: center 85%;
   background-size: cover;
 
   h1 {
+    ${typeHeadingH3()}
     position: relative;
     z-index: 1;
     margin: 0;
@@ -29,7 +31,7 @@ const StyledHeader = styled.header`
     left: 0;
     display: block;
     content: '';
-    background-color: rgba(255, 230, 153, 0.2);
+    background-color: rgba(255, 230, 153, 0.4);
   }
 `;
 
