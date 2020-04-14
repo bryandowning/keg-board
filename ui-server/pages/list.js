@@ -176,23 +176,26 @@ export default function List() {
               </Stat>
 
               <Stat>
-                <dt>Gravity</dt>
+                <dt>Balance</dt>
                 <dd>{calcBalance(og, ibu)} BU:GU</dd>
               </Stat>
 
               <Stat>
-                <dt>Balance</dt>
                 <dd>{og.toFixed(3)} OG</dd>
               </Stat>
 
               <Stat>
-                <dt>Poured</dt>
-                <dd>{((startAmount - remainAmount) * 128).toFixed()} oz</dd>
+                <dd>{fg.toFixed(3)} FG</dd>
+              </Stat>
+
+              <Stat>
+                <dt>Color</dt>
+                <dd>{srm} SRM</dd>
               </Stat>
 
               <Stat>
                 <dt>Remaining</dt>
-                <dd>{(remainAmount * 128).toFixed()} oz</dd>
+                <dd>{((remainAmount / startAmount) * 100).toFixed(2)} %</dd>
               </Stat>
             </Stats>
             {notes && <Notes>{notes}</Notes>}
