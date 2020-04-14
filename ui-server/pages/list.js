@@ -53,6 +53,11 @@ const Tap = styled.pre`
     height: 3ch;
     color: ${({ colors }) => colors[0]};
     background-color: ${({ colors }) => colors[1]};
+    background-image: url('/images/beer-swatch.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: overlay;
     border-radius: 50%;
   }
 `;
