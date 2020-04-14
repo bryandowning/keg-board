@@ -13,7 +13,10 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:css": "stylelint './**/*.{js,jsx}'",
+    "lint:js": "eslint './**/*.{js,jsx}' --max-warnings 0"
   },
   "browserslist": {
     "production": [
@@ -28,8 +31,20 @@
     ]
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.2",
     "babel-plugin-styled-components": "^1.10.7",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "prettier": "2.0.4",
-    "raw-loader": "^4.0.0"
+    "raw-loader": "^4.0.0",
+    "stylelint": "^13.0.0",
+    "stylelint-config-recess-order": "^2.0.3",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.8.0"
   }
 }
