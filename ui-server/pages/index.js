@@ -33,10 +33,10 @@ export default function Index() {
           <BeerRow key={id} isEmpty={isEmpty} isActive={isActive}>
             <BeerTap colors={getBeerColorPair(srm)} isActive={isActive}>
               <span>{tapNumber}</span>
-              {isEmpty && <p>EMPTY</p>}
+              {isEmpty && isActive && <p>EMPTY</p>}
             </BeerTap>
             <BeerTitle isActive={isActive}>
-              <h2>{beername}</h2>
+              <h2>{isActive ? beername : 'EMPTY'}</h2>
               {isActive && <h3>{style}</h3>}
             </BeerTitle>
 
@@ -81,7 +81,7 @@ export default function Index() {
                 </BeerStat>
               </BeerStats>
             )}
-            {notes && <BeerNotes>{notes}</BeerNotes>}
+            {notes && isActive && <BeerNotes>{notes}</BeerNotes>}
           </BeerRow>
         )
       )}
