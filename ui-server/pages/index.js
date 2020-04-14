@@ -31,10 +31,11 @@ export default function Index() {
           isActive,
         }) => (
           <BeerRow key={id} isEmpty={isEmpty} isActive={isActive}>
-            <BeerTap colors={getBeerColorPair(srm)}>
+            <BeerTap colors={getBeerColorPair(srm)} isActive={isActive}>
               <span>{tapNumber}</span>
+              {isEmpty && <p>EMPTY</p>}
             </BeerTap>
-            <BeerTitle>
+            <BeerTitle isActive={isActive}>
               <h2>{beername}</h2>
               {isActive && <h3>{style}</h3>}
             </BeerTitle>

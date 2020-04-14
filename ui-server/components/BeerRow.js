@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { typeHeadingH1 } from '../styles/typography';
 import { grayLight } from '../styles/colors';
 
@@ -12,8 +13,10 @@ export default styled.div`
   max-width: 1440px;
   padding: 0.25em 0.25em;
   margin: 0 auto;
+  background-color: ${({ isActive, isEmpty }) =>
+    !isActive || isEmpty ? grayLight : 'transparent'};
   border-bottom: 1px solid ${grayLight};
-  opacity: ${({ isEmpty }) => (isEmpty ? 0.5 : 1)};
+  opacity: ${({ isActive }) => (!isActive ? 0.5 : 1)};
 
   @media (min-width: 600px) {
     grid-template-areas: 'tap title stats' '. notes notes';
