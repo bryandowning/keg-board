@@ -1,6 +1,6 @@
 import Header from '../components/Header';
 import BeerRow from '../components/BeerRow';
-import Tap from '../components/Tap';
+import BeerTap from '../components/BeerTap';
 import Beer from '../components/Beer';
 import Stats from '../components/Stats';
 import Stat from '../components/Stat';
@@ -31,9 +31,9 @@ export default function Index() {
           isActive,
         }) => (
           <BeerRow key={id} isEmpty={isEmpty} isActive={isActive}>
-            <Tap colors={getBeerColorPair(srm)}>
+            <BeerTap colors={getBeerColorPair(srm)}>
               <span>{tapNumber}</span>
-            </Tap>
+            </BeerTap>
             <Beer>
               <h2>{beername}</h2>
               {isActive && <h3>{style}</h3>}
