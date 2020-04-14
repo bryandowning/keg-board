@@ -27,6 +27,7 @@ const BeerDetails = styled.div`
   padding: 0.25em 0.25em;
   margin: 0 auto;
   border-bottom: 1px solid ${grayLight};
+  opacity: ${({ isEmpty }) => (isEmpty ? 0.5 : 1)};
 
   @media (min-width: 600px) {
     grid-template-areas: 'tap title stats' '. notes notes';
@@ -150,54 +151,59 @@ export default function List() {
           startAmount,
           style,
           tapNumber,
+          isEmpty,
+          isActive,
         }) => (
-          <BeerDetails key={id}>
+          <BeerDetails key={id} isEmpty={isEmpty} isActive={isActive}>
             <Tap colors={getBeerColorPair(srm)}>
               <span>{tapNumber}</span>
             </Tap>
             <Beer>
               <h2>{beername}</h2>
-              <h3>{style}</h3>
+              {isActive && <h3>{style}</h3>}
             </Beer>
-            <Stats>
-              <Stat featured>
-                <dt>Alcohol</dt>
-                <dd>{calcABV(og, fg)}% ABV</dd>
-              </Stat>
 
-              <Stat featured>
-                <dt>Bitterness</dt>
-                <dd>{ibu} IBU</dd>
-              </Stat>
+            {isActive && (
+              <Stats>
+                <Stat featured>
+                  <dt>Alcohol</dt>
+                  <dd>{calcABV(og, fg)}% ABV</dd>
+                </Stat>
 
-              <Stat>
-                <dt>Calories</dt>
-                <dd>{calcCalories(og, fg)} kCal</dd>
-              </Stat>
+                <Stat featured>
+                  <dt>Bitterness</dt>
+                  <dd>{ibu} IBU</dd>
+                </Stat>
 
-              <Stat>
-                <dt>Balance</dt>
-                <dd>{calcBalance(og, ibu)} BU:GU</dd>
-              </Stat>
+                <Stat>
+                  <dt>Calories</dt>
+                  <dd>{calcCalories(og, fg)} kCal</dd>
+                </Stat>
 
-              <Stat>
-                <dd>{og.toFixed(3)} OG</dd>
-              </Stat>
+                <Stat>
+                  <dt>Balance</dt>
+                  <dd>{calcBalance(og, ibu)} BU:GU</dd>
+                </Stat>
 
-              <Stat>
-                <dd>{fg.toFixed(3)} FG</dd>
-              </Stat>
+                <Stat>
+                  <dd>{og.toFixed(3)} OG</dd>
+                </Stat>
 
-              <Stat>
-                <dt>Color</dt>
-                <dd>{srm} SRM</dd>
-              </Stat>
+                <Stat>
+                  <dd>{fg.toFixed(3)} FG</dd>
+                </Stat>
 
-              <Stat>
-                <dt>Remaining</dt>
-                <dd>{((remainAmount / startAmount) * 100).toFixed(2)} %</dd>
-              </Stat>
-            </Stats>
+                <Stat>
+                  <dt>Color</dt>
+                  <dd>{srm} SRM</dd>
+                </Stat>
+
+                <Stat>
+                  <dt>Remaining</dt>
+                  <dd>{((remainAmount / startAmount) * 100).toFixed(2)} %</dd>
+                </Stat>
+              </Stats>
+            )}
             {notes && <Notes>{notes}</Notes>}
           </BeerDetails>
         )
