@@ -1,5 +1,5 @@
-export const baseFontSize = 16
-export const baseViewportWidth = 1920
+export const baseFontSize = 16;
+export const baseViewportWidth = 1920;
 
 /**
  * Given a unitless number and an optional context, calculate a size in rem.
@@ -9,7 +9,7 @@ export const baseViewportWidth = 1920
  * @returns {string}          The size in rem
  */
 export function rem(size, context = baseFontSize) {
-  return `${size / context}rem`
+  return `${size / context}rem`;
 }
 
 /**
@@ -20,7 +20,7 @@ export function rem(size, context = baseFontSize) {
  * @returns {string}          The size in em
  */
 export function em(size, context = baseFontSize) {
-  return `${size / context}em`
+  return `${size / context}em`;
 }
 
 /**
@@ -31,5 +31,5 @@ export function em(size, context = baseFontSize) {
  * @returns {string}          The size in vw
  */
 export function vw(size, context = baseViewportWidth) {
-  return `${(size / context) * 100}vw`
+  return `${(size / context) * 100}vw`;
 }

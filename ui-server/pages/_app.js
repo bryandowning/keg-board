@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyles from '../styles/global';

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { createGlobalStyle } from 'styled-components';
 import sanitize from '!!raw-loader!sanitize.css/sanitize.css';
 import typography from '!!raw-loader!sanitize.css/typography.css';
