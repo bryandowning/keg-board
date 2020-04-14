@@ -9,7 +9,7 @@ import Notes from '../components/Notes';
 import beers from '../data/beers';
 import { calcABV, calcBalance, calcCalories, getBeerColorPair } from '../utils/beer';
 
-export default function List() {
+export default function Index() {
   return (
     <div>
       <Header />
