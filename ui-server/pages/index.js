@@ -3,7 +3,7 @@ import BeerRow from '../components/BeerRow';
 import BeerTap from '../components/BeerTap';
 import BeerTitle from '../components/BeerTitle';
 import BeerStats from '../components/BeerStats';
-import Stat from '../components/Stat';
+import BeerStat from '../components/BeerStat';
 import Notes from '../components/Notes';
 
 import beers from '../data/beers';
@@ -41,43 +41,43 @@ export default function Index() {
 
             {isActive && (
               <BeerStats>
-                <Stat featured>
+                <BeerStat featured>
                   <dt>Alcohol</dt>
                   <dd>{calcABV(og, fg)}% ABV</dd>
-                </Stat>
+                </BeerStat>
 
-                <Stat featured>
+                <BeerStat featured>
                   <dt>Bitterness</dt>
                   <dd>{ibu} IBU</dd>
-                </Stat>
+                </BeerStat>
 
-                <Stat>
+                <BeerStat>
                   <dt>Calories</dt>
                   <dd>{calcCalories(og, fg)} kCal</dd>
-                </Stat>
+                </BeerStat>
 
-                <Stat>
+                <BeerStat>
                   <dt>Balance</dt>
                   <dd>{calcBalance(og, ibu)} BU:GU</dd>
-                </Stat>
+                </BeerStat>
 
-                <Stat>
+                <BeerStat>
                   <dd>{og.toFixed(3)} OG</dd>
-                </Stat>
+                </BeerStat>
 
-                <Stat>
+                <BeerStat>
                   <dd>{fg.toFixed(3)} FG</dd>
-                </Stat>
+                </BeerStat>
 
-                <Stat>
+                <BeerStat>
                   <dt>Color</dt>
                   <dd>{srm} SRM</dd>
-                </Stat>
+                </BeerStat>
 
-                <Stat>
+                <BeerStat>
                   <dt>Remaining</dt>
                   <dd>{((remainAmount / startAmount) * 100).toFixed(2)} %</dd>
-                </Stat>
+                </BeerStat>
               </BeerStats>
             )}
             {notes && <Notes>{notes}</Notes>}
