@@ -2,7 +2,7 @@ import Header from '../components/Header';
 import BeerRow from '../components/BeerRow';
 import BeerTap from '../components/BeerTap';
 import BeerTitle from '../components/BeerTitle';
-import Stats from '../components/Stats';
+import BeerStats from '../components/BeerStats';
 import Stat from '../components/Stat';
 import Notes from '../components/Notes';
 
@@ -40,7 +40,7 @@ export default function Index() {
             </BeerTitle>
 
             {isActive && (
-              <Stats>
+              <BeerStats>
                 <Stat featured>
                   <dt>Alcohol</dt>
                   <dd>{calcABV(og, fg)}% ABV</dd>
@@ -78,7 +78,7 @@ export default function Index() {
                   <dt>Remaining</dt>
                   <dd>{((remainAmount / startAmount) * 100).toFixed(2)} %</dd>
                 </Stat>
-              </Stats>
+              </BeerStats>
             )}
             {notes && <Notes>{notes}</Notes>}
           </BeerRow>
