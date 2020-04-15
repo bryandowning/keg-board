@@ -17,18 +17,22 @@ export default styled.div`
   dd {
     ${typeStat()}
     display: inline-block;
-    padding: 0.1em 0.5em 0.15em;
+    padding: 0.25em 0.5em;
     margin: 0;
     font-weight: normal;
     vertical-align: middle;
     background-color: ${grayLight};
     border: 1px solid ${grayMedium};
     border-radius: 0.5em;
+
+    + dd {
+      margin-left: 0.5em;
+    }
   }
 
   @media (min-width: 600px) {
     display: inline-block;
-    width: 25%;
+    width: ${({ double }) => (double ? '50%' : '25%')};
   }
 
   @media (min-width: 1024px) {

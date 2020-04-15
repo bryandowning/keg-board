@@ -58,16 +58,8 @@ export default function Index() {
                 </BeerStat>
 
                 <BeerStat>
-                  <dt>Balance</dt>
-                  <dd>{calcBalance(og, ibu)} BU:GU</dd>
-                </BeerStat>
-
-                <BeerStat>
-                  <dd>{og.toFixed(3)} OG</dd>
-                </BeerStat>
-
-                <BeerStat>
-                  <dd>{fg.toFixed(3)} FG</dd>
+                  <dt>Remaining</dt>
+                  <dd>{((remainAmount / startAmount) * 100).toFixed(2)} %</dd>
                 </BeerStat>
 
                 <BeerStat>
@@ -75,9 +67,15 @@ export default function Index() {
                   <dd>{srm} SRM</dd>
                 </BeerStat>
 
+                <BeerStat double>
+                  <dt>Original/Final Gravity</dt>
+                  <dd>{og.toFixed(3)} OG</dd>
+                  <dd>{fg.toFixed(3)} FG</dd>
+                </BeerStat>
+
                 <BeerStat>
-                  <dt>Remaining</dt>
-                  <dd>{((remainAmount / startAmount) * 100).toFixed(2)} %</dd>
+                  <dt>Balance</dt>
+                  <dd>{calcBalance(og, ibu)} BU:GU</dd>
                 </BeerStat>
               </BeerStats>
             )}
