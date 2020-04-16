@@ -1,20 +1,24 @@
 import styled from 'styled-components';
-import { typeBodyPrimary, typeBodyLead } from '../styles/typography';
+import { typeSizeBodyS, typeSizeBodyM } from '../styles/typography';
 
 export default styled.div`
   grid-area: title;
 
   h2 {
-    ${typeBodyLead()}
+    ${typeSizeBodyM}
     margin: 0;
-    font-weight: 600;
+    font-weight: 500;
+    line-height: ${18 / 16};
+    text-transform: uppercase;
+    letter-spacing: 1px;
     ${({ isActive, theme }) => (!isActive ? `color: ${theme.inactiveRowTextColor};` : null)};
   }
 
   h3 {
-    ${typeBodyPrimary()}
+    ${typeSizeBodyS}
     margin: 0;
     font-weight: normal;
+    line-height: 1;
   }
 
   ${({ theme }) => theme.beerTitleOverrides || null};
