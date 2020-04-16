@@ -90,3 +90,45 @@ export function typeLabel() {
     letter-spacing: 1px;
   `;
 }
+
+// 10/12 @ 800
+export const typeSizeBodyXXS = css`
+  font-size: calc(${rem(8)} + ${vw(2)});
+  line-height: (12/10);
+`;
+
+// 12/14 @ 800
+export const typeSizeBodyXS = css`
+  font-size: calc(${rem(10)} + ${vw(2)});
+  line-height: (14/12);
+`;
+
+// 14/16 @ 800
+export const typeSizeBodyS = css`
+  font-size: calc(${rem(12)} + ${vw(2)});
+  line-height: (16/14);
+`;
+
+// 16/24 @ 800
+export const typeSizeBodyM = css`
+  font-size: calc(${rem(14)} + ${vw(2)});
+  line-height: (24/16);
+`;
+
+// 18/24 @ 800
+export const typeSizeBodyL = css`
+  font-size: calc(${rem(16)} + ${vw(2)});
+  line-height: (24/18);
+`;
+
+// 20/24 @ 800
+export const typeSizeBodyXL = css`
+  font-size: calc(${rem(18)} + ${vw(2)});
+  line-height: (24/20);
+`;
+
+// 24/28 @ 800
+export const typeSizeBodyXXL = css`
+  font-size: calc(${rem(22)} + ${vw(2)});
+  line-height: (28/24);
+`;
