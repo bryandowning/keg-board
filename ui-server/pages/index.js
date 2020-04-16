@@ -31,10 +31,7 @@ export default function Index() {
           isActive,
         }) => (
           <BeerRow key={id} isEmpty={isEmpty} isActive={isActive}>
-            <BeerTap colors={getBeerColorPair(srm)} isActive={isActive}>
-              <span>{tapNumber}</span>
-              {isEmpty && isActive && <p>EMPTY</p>}
-            </BeerTap>
+            <BeerTap number={tapNumber} level={(remainAmount / startAmount) * 100} />
             <BeerTitle isActive={isActive}>
               <h2>{isActive ? beername : 'EMPTY'}</h2>
               {isActive && <h3>{style}</h3>}

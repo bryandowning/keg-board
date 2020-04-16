@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { typeHeadingH1 } from '../styles/typography';
+import BeerTap from './BeerTap';
+
 import { grayLight } from '../styles/colors';
 
 export default styled.div`
-  ${typeHeadingH1()}
   display: grid;
   grid-template-areas: 'tap title stats';
   grid-template-rows: auto;
@@ -17,6 +17,10 @@ export default styled.div`
     !isActive || isEmpty ? theme.emptyRowBackgroundColor : 'transparent'};
   border-bottom: 1px solid ${grayLight};
   opacity: ${({ isActive }) => (!isActive ? 0.5 : 1)};
+
+  ${BeerTap} {
+    grid-area: tap;
+  }
 
   @media (min-width: 600px) {
     grid-template-areas: 'tap title stats' '. notes notes';
