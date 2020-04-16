@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
-import { typeBodySupplemental } from '../styles/typography';
+import { typeSizeBodyXS } from '../styles/typography';
+import { em } from '../styles/helpers';
 import { grayDark } from '../styles/colors';
 
 export default styled.p`
-  ${typeBodySupplemental()}
+  ${typeSizeBodyXS}
   display: none;
   grid-area: notes;
-  margin: 0.5em 0 0;
+  margin: ${em(8, 12)} 0 0;
   font-style: italic;
   color: ${grayDark};
 
