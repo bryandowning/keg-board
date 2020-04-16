@@ -1,5 +1,5 @@
 export const baseFontSize = 16;
-export const baseViewportWidth = 1920;
+export const baseViewportWidth = 800;
 
 /**
  * Given a unitless number and an optional context, calculate a size in rem.
