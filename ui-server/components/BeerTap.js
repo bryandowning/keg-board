@@ -7,17 +7,9 @@ import { typeSizeBodyXS, typeSizeBodyXL } from '../styles/typography';
 import { grayLight } from '../styles/colors';
 import { vw } from '../styles/helpers';
 
-export default styled(BeerTap)`
+const BeerTapFrame = styled.div`
   position: relative;
-
-  > div {
-    ${({ theme }) => theme.fontStackMono || null};
-    position: absolute;
-    left: 0;
-    width: 100%;
-    line-height: 1;
-    text-align: center;
-  }
+  display: inline-block;
 `;
 
 const TapNumber = styled.div`
@@ -52,6 +44,18 @@ const TapGauge = styled.aside`
   }
 `;
 
+export default styled(BeerTap)`
+  ${TapNumber},
+  ${TapLevel} {
+    ${({ theme }) => theme.fontStackMono || null};
+    position: absolute;
+    left: 0;
+    width: 100%;
+    line-height: 1;
+    text-align: center;
+  }
+`;
+
 BeerTap.propTypes = {
   className: PropTypes.string,
   level: PropTypes.number,
@@ -62,10 +66,12 @@ function BeerTap({ className, number, level }) {
   const levelPercentage = `${Math.round(level)}%`;
   return (
     <div className={className}>
-      <TapGauge levelPercentage={levelPercentage} />
-      <IconKeg width={vw(64)} />
-      <TapNumber>{number}</TapNumber>
-      <TapLevel>{level ? levelPercentage : 'EMPTY'}</TapLevel>
+      <BeerTapFrame>
+        <TapGauge levelPercentage={levelPercentage} />
+        <IconKeg width={vw(64)} />
+        <TapNumber>{number}</TapNumber>
+        <TapLevel>{level ? levelPercentage : 'EMPTY'}</TapLevel>
+      </BeerTapFrame>
     </div>
   );
 }
