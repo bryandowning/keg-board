@@ -14,4 +14,6 @@ export default styled.p`
   @media (min-width: 600px) {
     display: block;
   }
+
+  ${({ theme }) => theme.beerNotesOverrides || null};
 `;

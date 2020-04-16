@@ -4,6 +4,8 @@ import sanitize from '!!raw-loader!sanitize.css/sanitize.css';
 import typography from '!!raw-loader!sanitize.css/typography.css';
 import forms from '!!raw-loader!sanitize.css/forms.css';
 
+import fontKalam from './fonts/kalam';
+import fontJetBrainsMono from './fonts/jet-brains-mono';
 import {
   typeHeadingH1,
   typeHeadingH2,
@@ -16,11 +18,15 @@ export default createGlobalStyle`
   ${sanitize}
   ${typography}
   ${forms}
+  ${fontKalam}
+  ${fontJetBrainsMono}
 
   body {
     ${typeBodyPrimary()}
+    font-family: ${({ theme }) => theme.fontStackPrimary};
     color: ${({ theme }) => theme.foreground};
     background-color: ${({ theme }) => theme.background};
+    ${({ theme }) => theme.bodyOverrides || null};
   }
 
   /* HEADINGS */

@@ -40,4 +40,6 @@ export default styled.div`
       display: inline-block;
     }
   }
+
+  ${({ theme }) => theme.beerStatOverrides || null};
 `;

@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { typeBodyPrimary, typeBodyLead } from '../styles/typography';
 
-import { grayDark } from '../styles/colors';
-
 export default styled.div`
   grid-area: title;
 
@@ -10,7 +8,7 @@ export default styled.div`
     ${typeBodyLead()}
     margin: 0;
     font-weight: 600;
-    ${({ isActive }) => (!isActive ? `color: ${grayDark};` : null)};
+    ${({ isActive, theme }) => (!isActive ? `color: ${theme.inactiveRowTextColor};` : null)};
   }
 
   h3 {
@@ -18,4 +16,6 @@ export default styled.div`
     margin: 0;
     font-weight: normal;
   }
+
+  ${({ theme }) => theme.beerTitleOverrides || null};
 `;

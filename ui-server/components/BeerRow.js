@@ -13,8 +13,8 @@ export default styled.div`
   max-width: 1440px;
   padding: 0.2em 0.25em;
   margin: 0 auto;
-  background-color: ${({ isActive, isEmpty }) =>
-    !isActive || isEmpty ? grayLight : 'transparent'};
+  background-color: ${({ isActive, isEmpty, theme }) =>
+    !isActive || isEmpty ? theme.emptyRowBackgroundColor : 'transparent'};
   border-bottom: 1px solid ${grayLight};
   opacity: ${({ isActive }) => (!isActive ? 0.5 : 1)};
 
@@ -27,4 +27,6 @@ export default styled.div`
   @media (min-width: 1024px) {
     grid-template-columns: auto 1fr 2fr;
   }
+
+  ${({ theme }) => theme.beerRowOverrides || null};
 `;

@@ -33,6 +33,8 @@ const StyledHeader = styled.header`
     content: '';
     background-color: rgba(255, 230, 153, 0.4);
   }
+
+  ${({ theme }) => theme.headerOverrides || null};
 `;
 
 const Header = () => {
