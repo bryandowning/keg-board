@@ -23,7 +23,7 @@ export default createGlobalStyle`
 
   body {
     ${typeBodyPrimary()}
-    font-family: ${({ theme }) => theme.fontStackPrimary};
+    ${({ theme }) => theme.fontStackPrimary};
     color: ${({ theme }) => theme.foreground};
     background-color: ${({ theme }) => theme.background};
     ${({ theme }) => theme.bodyOverrides || null};
