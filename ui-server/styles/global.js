@@ -11,7 +11,7 @@ import {
   typeHeadingH2,
   typeHeadingH3,
   typeHeadingH4,
-  typeBodyPrimary,
+  typeSizeBodyM,
 } from './typography';
 
 export default createGlobalStyle`
@@ -22,7 +22,7 @@ export default createGlobalStyle`
   ${fontJetBrainsMono}
 
   body {
-    ${typeBodyPrimary()}
+    ${typeSizeBodyM}
     ${({ theme }) => theme.fontStackPrimary};
     color: ${({ theme }) => theme.foreground};
     background-color: ${({ theme }) => theme.background};
