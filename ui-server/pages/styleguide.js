@@ -7,10 +7,6 @@ import { beerColors } from '../utils/beer';
 
 import * as colors from '../styles/colors';
 import {
-  typeBodyLead,
-  typeBodySupplemental,
-  typeLabel,
-  typeStat,
   typeSizeBodyXXS,
   typeSizeBodyXS,
   typeSizeBodyS,
@@ -22,22 +18,6 @@ import {
 
 const StyledGuide = styled.div`
   padding: 0 2em;
-`;
-
-const Lead = styled.p`
-  ${typeBodyLead()}
-`;
-
-const Supplemental = styled.p`
-  ${typeBodySupplemental()}
-`;
-
-const Stat = styled.p`
-  ${typeStat()}
-`;
-
-const Label = styled.p`
-  ${typeLabel()}
 `;
 
 const TypeSizeBodyXXS = styled.div`
@@ -103,7 +83,21 @@ function Styleguide() {
 
       <h2>Typography</h2>
 
-      <h3>Body Type Scale</h3>
+      <h3>Headings</h3>
+      <h1 className="typeSizerTarget" data-name="typeHeadingH1">
+        H1, {typeSizes.typeHeadingH1}
+      </h1>
+      <h2 className="typeSizerTarget" data-name="typeHeadingH2">
+        H2, {typeSizes.typeHeadingH2}
+      </h2>
+      <h3 className="typeSizerTarget" data-name="typeHeadingH3">
+        H3, {typeSizes.typeHeadingH3}
+      </h3>
+      <h4 className="typeSizerTarget" data-name="typeHeadingH4">
+        H4, {typeSizes.typeHeadingH4}
+      </h4>
+
+      <h3>Body Type</h3>
 
       <TypeSizeBodyXXS className="typeSizerTarget" data-name="typeSizeBodyXXS">
         typeSizeBodyXXS: {typeSizes.typeSizeBodyXXS}
@@ -140,42 +134,6 @@ function Styleguide() {
         <br />
         The quick brown fox jumps over the lazy dog.
       </TypeSizeBodyXXL>
-
-      <h3>Headings</h3>
-      <h1 className="typeSizerTarget" data-name="typeHeadingH1">
-        H1, {typeSizes.typeHeadingH1}
-      </h1>
-      <h2 className="typeSizerTarget" data-name="typeHeadingH2">
-        H2, {typeSizes.typeHeadingH2}
-      </h2>
-      <h3 className="typeSizerTarget" data-name="typeHeadingH3">
-        H3, {typeSizes.typeHeadingH3}
-      </h3>
-      <h4 className="typeSizerTarget" data-name="typeHeadingH4">
-        H4, {typeSizes.typeHeadingH4}
-      </h4>
-
-      <h3>Body Copy</h3>
-      <Lead className="typeSizerTarget" data-name="typeBodyLead">
-        P, {typeSizes.typeBodyLead} Lead body copy.
-      </Lead>
-
-      <p className="typeSizerTarget" data-name="typeBodyPrimary">
-        P, {typeSizes.typeBodyPrimary} Primary body copy.
-      </p>
-
-      <Supplemental className="typeSizerTarget" data-name="typeBodySupplemental">
-        P, {typeSizes.typeBodySupplemental} Supplemental body copy.
-      </Supplemental>
-
-      <h3>Other</h3>
-      <Stat className="typeSizerTarget" data-name="typeStat">
-        P, {typeSizes.typeStat} Stat.
-      </Stat>
-
-      <Label className="typeSizerTarget" data-name="typeLabel">
-        P, {typeSizes.typeLabel} Label.
-      </Label>
 
       <hr />
     </StyledGuide>
