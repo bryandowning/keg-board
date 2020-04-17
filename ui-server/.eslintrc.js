@@ -235,7 +235,7 @@ const rulesECMAScript6 = {
   'rest-spread-spacing': [2, 'never'],
   'sort-imports': 0,
   'symbol-description': 2,
-  'template-curly-spacing': [2, 'never'],
+  'template-curly-spacing': 'off',
   'yield-star-spacing': 0,
 };
 
