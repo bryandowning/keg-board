@@ -8,6 +8,8 @@ import BeerNotes from './BeerNotes';
 import BeerStats from './BeerStats';
 import BeerStat from './BeerStat';
 
+import { vw } from '../styles/helpers';
+
 const emptyStyles = css`
   /* stylelint-disable no-duplicate-selectors, selector-type-no-unknown */
   ${BeerColor},
@@ -43,7 +45,7 @@ export default styled(BeerRow)`
   grid-template-areas: 'title title title' 'notes notes notes' 'tap color stats';
   grid-template-rows: auto auto auto;
   grid-template-columns: auto auto 1fr;
-  max-width: 375px;
+  max-width: calc(300px + ${vw(75)});
   padding: 1em 0.5em;
   margin: 0 auto;
   box-shadow: 0 1px 1px #ebebeb, 0 2px 3px #f7f7f7;
@@ -75,7 +77,7 @@ export default styled(BeerRow)`
     grid-template-areas: 'tap color title' 'tap color notes' 'stats stats stats';
     grid-template-rows: auto auto auto;
     grid-template-columns: auto auto 1fr;
-    max-width: 520px;
+    max-width: calc(420px + ${vw(100)});
 
     ${BeerNotes} {
       margin-bottom: 0;
@@ -86,16 +88,11 @@ export default styled(BeerRow)`
     grid-template-areas: 'tap color title stats' 'tap color notes stats';
     grid-template-rows: auto 1fr;
     grid-template-columns: auto auto 1fr auto;
-    max-width: 800px;
+    max-width: calc(700px + ${vw(100)});
   }
 
   @media (min-width: 1280px) {
-    max-width: 1000px;
     padding-right: 1.5em;
-  }
-
-  @media (min-width: 2560px) {
-    max-width: 1200px;
   }
 
   @media (max-height: 480px) {
