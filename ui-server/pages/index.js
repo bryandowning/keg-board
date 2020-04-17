@@ -29,7 +29,6 @@ export default function Index() {
             {...{
               tapNumber,
               srm,
-              style,
               og,
               fg,
               ibu,
