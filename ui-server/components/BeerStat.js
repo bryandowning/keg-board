@@ -1,45 +1,61 @@
-import styled from 'styled-components';
+import { useContext } from 'react';
+import PropTypes from 'prop-types';
+import styled, { ThemeContext } from 'styled-components';
 
-import { typeLabel, typeStat } from '../styles/typography';
-import { grayLight, grayMedium } from '../styles/colors';
+import IconBoom from './SVG/IconBoom';
+import IconFlame from './SVG/IconFlame';
+import IconGrains from './SVG/IconGrains';
+import IconHop from './SVG/IconHop';
+import IconScale from './SVG/IconScale';
 
-export default styled.div`
+import { typeSizeBodyXS } from '../styles/typography';
+import { em } from '../styles/helpers';
+
+const iconMapping = {
+  Boom: IconBoom,
+  Flame: IconFlame,
+  Grains: IconGrains,
+  Hop: IconHop,
+  Scale: IconScale,
+};
+
+const StatValue = styled.div`
+  display: inline-block;
+  margin-left: 0.5em;
+  vertical-align: text-top;
+`;
+
+export default styled(BeerStat)`
+  ${typeSizeBodyXS}
+  ${({ theme }) => theme.fontStackMono || null};
   display: ${({ featured }) => (featured ? 'block' : 'none')};
-  text-align: right;
+  font-weight: 500;
+  line-height: ${em(16, 12)};
   white-space: nowrap;
 
-  dt {
-    ${typeLabel()}
-    display: none;
-    margin-right: 0.5em;
-  }
-
-  dd {
-    ${typeStat()}
-    display: inline-block;
-    padding: 0.25em 0.5em;
-    margin: 0;
-    font-weight: normal;
-    vertical-align: middle;
-    background-color: ${grayLight};
-    border: 1px solid ${grayMedium};
-    border-radius: 0.5em;
-
-    + dd {
-      margin-left: 0.5em;
-    }
-  }
-
   @media (min-width: 600px) {
-    display: inline-block;
-    width: ${({ double }) => (double ? '50%' : '25%')};
-  }
-
-  @media (min-width: 1024px) {
-    dt {
-      display: inline-block;
-    }
+    display: block;
   }
 
   ${({ theme }) => theme.beerStatOverrides || null};
 `;
+
+BeerStat.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  featured: PropTypes.bool,
+  icon: PropTypes.oneOf(Object.keys(iconMapping)),
+};
+
+function BeerStat({ className, icon, children }) {
+  const Icon = iconMapping[icon];
+  const theme = useContext(ThemeContext);
+  const iconColor = theme[`iconColor${icon}`] || null;
+
+  return (
+    <div className={className}>
+      <Icon width="1.333334em" color={iconColor} />
+      <StatValue>{children}</StatValue>
+    </div>
+  );
+}

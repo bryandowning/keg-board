@@ -26,6 +26,11 @@ export default {
     `,
     emptyRowBackgroundColor: grayLight,
     inactiveRowTextColor: grayDark,
+    iconColorBoom: '#d67b07',
+    iconColorHop: '#13900c',
+    iconColorFlame: '#bf0000',
+    iconColorScale: '#751175',
+    iconColorGrains: '#b9bd03',
   },
   chalk: {
     background: chalkboard,

@@ -1,13 +1,14 @@
 import Header from '../components/Header';
 import BeerRow from '../components/BeerRow';
 import BeerTap from '../components/BeerTap';
+import BeerColor from '../components/BeerColor';
 import BeerTitle from '../components/BeerTitle';
 import BeerStats from '../components/BeerStats';
 import BeerStat from '../components/BeerStat';
 import BeerNotes from '../components/BeerNotes';
 
 import beers from '../data/beers';
-import { calcABV, calcBalance, calcCalories, getBeerColorPair } from '../utils/beer';
+import { calcABV, calcBalance, calcCalories } from '../utils/beer';
 
 export default function Index() {
   return (
@@ -32,6 +33,7 @@ export default function Index() {
         }) => (
           <BeerRow key={id} isEmpty={isEmpty} isActive={isActive}>
             <BeerTap number={tapNumber} level={(remainAmount / startAmount) * 100} />
+            <BeerColor srm={srm} />
             <BeerTitle isActive={isActive}>
               <h2>{isActive ? beername : 'EMPTY'}</h2>
               {isActive && <h3>{style}</h3>}
@@ -39,40 +41,22 @@ export default function Index() {
 
             {isActive && (
               <BeerStats>
-                <BeerStat featured>
-                  <dt>Alcohol</dt>
-                  <dd>{calcABV(og, fg)}% ABV</dd>
+                <BeerStat featured icon="Boom">
+                  {calcABV(og, fg)}% ABV
                 </BeerStat>
 
-                <BeerStat featured>
-                  <dt>Bitterness</dt>
-                  <dd>{ibu} IBU</dd>
+                <BeerStat featured icon="Hop">
+                  {ibu} IBU
                 </BeerStat>
 
-                <BeerStat>
-                  <dt>Calories</dt>
-                  <dd>{calcCalories(og, fg)} kCal</dd>
-                </BeerStat>
+                <BeerStat icon="Flame">{calcCalories(og, fg)} kCal</BeerStat>
 
-                <BeerStat>
-                  <dt>Remaining</dt>
-                  <dd>{((remainAmount / startAmount) * 100).toFixed(2)} %</dd>
-                </BeerStat>
+                <BeerStat icon="Scale">{calcBalance(og, ibu)} BU:GU</BeerStat>
 
-                <BeerStat>
-                  <dt>Color</dt>
-                  <dd>{srm} SRM</dd>
-                </BeerStat>
-
-                <BeerStat double>
-                  <dt>Original/Final Gravity</dt>
-                  <dd>{og.toFixed(3)} OG</dd>
-                  <dd>{fg.toFixed(3)} FG</dd>
-                </BeerStat>
-
-                <BeerStat>
-                  <dt>Balance</dt>
-                  <dd>{calcBalance(og, ibu)} BU:GU</dd>
+                <BeerStat icon="Grains">
+                  {og.toFixed(3)} OG
+                  <br />
+                  {fg.toFixed(3)} FG
                 </BeerStat>
               </BeerStats>
             )}
