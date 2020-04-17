@@ -4,13 +4,11 @@ import SVG from './SVG';
 
 IconPint.propTypes = {
   beerColor: PropTypes.string,
-  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
-export default function IconPint({ beerColor, height, width, ...rest }) {
+export default function IconPint({ beerColor, ...rest }) {
   return (
-    <SVG width={width} height={height} viewBox="0 0 64 64" {...rest}>
+    <SVG viewBox="0 0 64 64" {...rest}>
       <path
         d="m18.3641162 9.42296469c1.1718409-.59821294 2.0183647-1.03149802 3.9370354-1.03149802 1.9186708 0 2.7651946.43328508 3.9370354 1.03149802 1.3782248.70443771 3.0957587 1.58079171 6.2912112 1.58079171 3.1919546 0 4.9077394-.876354 6.2842152-1.58079171 1.1700918-.59821294 2.0131176-1.03010033 3.9265413-1.03010033 1.9064276 0 2.7477044.43188739 3.9125492 1.02870264.9777.50037438 2.1233056 1.0888035 3.8478356 1.3879099l-6.6886751 51.0718315c-.0419764.2907203-.3515523.5101583-.7188457.5101583h-21.1832094c-.3672934 0-.6768693-.219438-.7170967-.5087606l-6.6921731-51.0732292c1.733275-.2977087 2.8841277-.88613782 3.8635767-1.38651221z"
         fill={beerColor}
