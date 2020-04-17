@@ -10,6 +10,10 @@ import { vw } from '../styles/helpers';
 const BeerTapFrame = styled.div`
   position: relative;
   display: inline-block;
+
+  svg {
+    width: calc(62px + ${vw(2)});
+  }
 `;
 
 const TapNumber = styled.div`
@@ -68,7 +72,7 @@ function BeerTap({ className, number, level }) {
     <div className={className}>
       <BeerTapFrame>
         <TapGauge levelPercentage={levelPercentage} />
-        <IconKeg width={vw(64)} />
+        <IconKeg />
         <TapNumber>{number}</TapNumber>
         <TapLevel>{level ? levelPercentage : 'EMPTY'}</TapLevel>
       </BeerTapFrame>

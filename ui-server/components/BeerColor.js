@@ -10,6 +10,10 @@ import { vw } from '../styles/helpers';
 
 export default styled(BeerColor)`
   display: block;
+
+  svg {
+    width: calc(62px + ${vw(2)});
+  }
 `;
 
 const BeerColorFrame = styled.div`
@@ -45,7 +49,7 @@ function BeerColor({ className, srm }) {
   return (
     <div className={className}>
       <BeerColorFrame>
-        <IconPint beerColor={beerColor} width={vw(64)} />
+        <IconPint beerColor={beerColor} />
         <BeerColorLabel color={textColor}>
           {srm}
           <br />
