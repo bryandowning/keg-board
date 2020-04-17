@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { chalkboard, white, grayMedium, grayDark } from './colors';
+import { black, chalkboard, white, grayMedium, grayDark } from './colors';
 
 export default {
   modern: {
@@ -28,8 +28,42 @@ export default {
     bodyOverrides: css`
       background-color: #fcfcfc;
     `,
+    headerOverrides: css`
+      background-color: #f7f7f7;
+      box-shadow: 0 1px 1px #ebebeb, 0 2px 3px #f7f7f7;
+    `,
     beerRowOverrides: css`
       background-color: ${white};
+      box-shadow: inset 0 -2px 3px #f7f7f7;
+    `,
+  },
+  neon: {
+    background: black,
+    foreground: white,
+    fontStackPrimary: css`
+      font-family: 'Montserrat', system-ui, /* macOS 10.11-10.12 */ -apple-system,
+        /* Windows 6+ */ 'Segoe UI', /* Android 4+ */ 'Roboto', /* Ubuntu 10.10+ */ 'Ubuntu',
+        /* Gnome 3+ */ 'Cantarell', /* KDE Plasma 5+ */ 'Noto Sans', /* fallback */ sans-serif,
+        /* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
+        /* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
+    `,
+    fontStackMono: css`
+      font-family: 'JetBrains Mono', /* macOS 10.10+ */ 'Menlo', /* Windows 6+ */ 'Consolas',
+        /* Android 4+ */ 'Roboto Mono', /* Ubuntu 10.10+ */ 'Ubuntu Monospace',
+        /* KDE Plasma 5+ */ 'Noto Mono', /* KDE Plasma 4+ */ 'Oxygen Mono',
+        /* Linux/OpenOffice fallback */ 'Liberation Mono', /* fallback */ monospace,
+        /* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
+        /* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
+    `,
+    iconColorBoom: '#ff902f',
+    iconColorHop: '#0eff00',
+    iconColorFlame: '#ff2323',
+    iconColorScale: '#ff39ff',
+    iconColorGrains: '#fbff29',
+    beerTapGaugeOverrides: css`
+      &:after {
+        background-color: #00699a;
+      }
     `,
   },
   chalk: {
@@ -57,13 +91,6 @@ export default {
     iconColorGrains: '#dee081',
     bodyOverrides: css`
       background-image: url('/images/background-chalk.jpg');
-    `,
-    headerOverrides: css`
-      background: none;
-      box-shadow: none;
-    `,
-    beerRowOverrides: css`
-      box-shadow: none;
     `,
     beerTapGaugeOverrides: css`
       &:after {

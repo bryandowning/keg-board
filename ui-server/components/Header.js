@@ -11,8 +11,6 @@ const StyledHeader = styled.header`
   justify-content: center;
   height: 1.75em;
   min-height: 48px;
-  background-color: #f7f7f7;
-  box-shadow: 0 1px 1px #ebebeb, 0 2px 3px #f7f7f7;
 
   h1 {
     ${typeHeadingH4()}
