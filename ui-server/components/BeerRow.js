@@ -48,7 +48,7 @@ export default styled(BeerRow)`
   max-width: calc(300px + ${vw(75, 375)});
   padding: 1em 0.5em;
   margin: 0 auto;
-  box-shadow: 0 1px 1px #ebebeb, 0 2px 3px #f7f7f7;
+  box-shadow: inset 0 -2px 3px #f7f7f7;
 
   ${BeerTap} {
     grid-area: tap;
