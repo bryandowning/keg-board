@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Swatch from '../components/Swatch';
+import IconBoom from '../components/SVG/IconBoom';
+import IconFlame from '../components/SVG/IconFlame';
+import IconGrains from '../components/SVG/IconGrains';
+import IconHop from '../components/SVG/IconHop';
+import IconScale from '../components/SVG/IconScale';
+import IconKeg from '../components/SVG/IconKeg';
+import IconPint from '../components/SVG/IconPint';
 
 import { beerColors } from '../utils/beer';
 
@@ -18,6 +25,18 @@ import {
 
 const StyledGuide = styled.div`
   padding: 0 2em;
+
+  figure {
+    display: inline-block;
+    padding: 1em;
+    margin: 1em 0.5em;
+    text-align: center;
+    background-color: ${({ theme }) => theme.background};
+  }
+
+  figcaption {
+    margin-top: 0.5em;
+  }
 `;
 
 const TypeSizeBodyXXS = styled.div`
@@ -136,6 +155,93 @@ function Styleguide() {
       </TypeSizeBodyXXL>
 
       <hr />
+
+      <h2>Credit</h2>
+
+      <h3>Images</h3>
+      <figure>
+        <img src="/images/background-chalk.jpg" width="200" />
+        <figcaption>
+          <a href="http://thepatternlibrary.com/#chalkboard">Chalkboard background</a>
+        </figcaption>
+      </figure>
+
+      <h3>Icons from The Noun Project</h3>
+      <p>Slight modifications were made to some of these icons.</p>
+      <figure>
+        <IconBoom width={64} />
+        <figcaption>
+          <a href="https://thenounproject.com/search/?q=342743&i=342743">Boom by Lucas Helle</a>
+        </figcaption>
+      </figure>
+
+      <figure>
+        <IconHop width={64} />
+        <figcaption>
+          <a href="https://thenounproject.com/search/?q=671918&i=671918">Hops by Jake Dunham</a>
+        </figcaption>
+      </figure>
+
+      <figure>
+        <IconFlame width={64} />
+        <figcaption>
+          <a href="https://thenounproject.com/search/?q=1868719&i=1868719">Fire by jenya</a>
+        </figcaption>
+      </figure>
+
+      <figure>
+        <IconScale width={64} />
+        <figcaption>
+          <a href="https://thenounproject.com/search/?q=168045&i=168045">Scale by Darin S</a>
+        </figcaption>
+      </figure>
+
+      <figure>
+        <IconGrains width={64} />
+        <figcaption>
+          <a href="https://thenounproject.com/search/?q=938752&i=938752">Salt by BomSymbols</a>
+        </figcaption>
+      </figure>
+
+      <figure>
+        <IconKeg width={64} />
+        <figcaption>
+          <a href="https://thenounproject.com/search/?q=193834&i=193834">Keg by Tyler DeHague</a>
+        </figcaption>
+      </figure>
+
+      <figure>
+        <IconPint width={64} />
+        <figcaption>
+          <a href="https://thenounproject.com/search/?q=193837&i=193837">Pint by Tyler DeHague</a>
+        </figcaption>
+      </figure>
+
+      <h3>Fonts</h3>
+      <figure>
+        <figcaption>
+          <a
+            href="https://fonts.google.com/specimen/Montserrat"
+            style={{ fontFamily: 'Montserrat' }}
+          >
+            Montserrat
+          </a>
+        </figcaption>
+      </figure>
+      <figure>
+        <figcaption>
+          <a href="https://fonts.google.com/specimen/Kalam" style={{ fontFamily: 'Kalam' }}>
+            Kalam
+          </a>
+        </figcaption>
+      </figure>
+      <figure>
+        <figcaption>
+          <a href="https://www.jetbrains.com/lp/mono/" style={{ fontFamily: 'JetBrains Mono' }}>
+            JetBrains Mono
+          </a>
+        </figcaption>
+      </figure>
     </StyledGuide>
   );
 }
