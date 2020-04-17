@@ -9,7 +9,6 @@ export default styled.div`
     line-height: ${18 / 16};
     text-transform: uppercase;
     letter-spacing: 1px;
-    ${({ isActive, theme }) => (!isActive ? `color: ${theme.inactiveRowTextColor};` : null)};
   }
 
   h3 {

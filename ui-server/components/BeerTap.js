@@ -31,6 +31,7 @@ const TapLevel = styled.div`
   font-weight: 500;
   color: ${({ isEmpty }) => (isEmpty ? 'white' : null)};
   background-color: ${({ isEmpty }) => (isEmpty ? '#bf0000' : null)};
+  opacity: ${({ isEmpty }) => (isEmpty ? 1 : 0.7)};
   transform: ${({ isEmpty }) => (isEmpty ? 'rotate(-10deg) translateY(-60%)' : null)};
 `;
 
@@ -51,6 +52,8 @@ const TapGauge = styled.aside`
     content: '';
     background-color: ${grayLight};
   }
+
+  ${({ theme }) => theme.beerTapGaugeOverrides || null};
 `;
 
 export default styled(BeerTap)`
