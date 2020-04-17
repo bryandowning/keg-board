@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import BeerTap from './BeerTap';
 import BeerColor from './BeerColor';
@@ -7,6 +7,36 @@ import BeerTitle from './BeerTitle';
 import BeerNotes from './BeerNotes';
 import BeerStats from './BeerStats';
 import BeerStat from './BeerStat';
+
+const emptyStyles = css`
+  /* stylelint-disable no-duplicate-selectors, selector-type-no-unknown */
+  ${BeerColor},
+  ${BeerTitle},
+  ${BeerNotes},
+  ${BeerStats} {
+    opacity: 0.35;
+  }
+  /* stylelint-enable no-duplicate-selectors, selector-type-no-unknown */
+`;
+
+const inactiveStyles = css`
+  @media (min-width: 0) {
+    grid-template-areas: 'tap title';
+    grid-template-rows: auto auto;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    text-align: center;
+
+    ${BeerTap},
+    ${BeerTitle} {
+      opacity: 0.6;
+    }
+
+    ${BeerTitle} {
+      margin-left: 0;
+    }
+  }
+`;
 
 export default styled(BeerRow)`
   display: grid;
@@ -17,7 +47,6 @@ export default styled(BeerRow)`
   padding: 1em 0.5em;
   margin: 0 auto;
   box-shadow: 0 1px 1px #ebebeb, 0 2px 3px #f7f7f7;
-  opacity: ${({ isActive, isEmpty }) => (!isActive || isEmpty ? 0.35 : 1)};
 
   ${BeerTap} {
     grid-area: tap;
@@ -73,7 +102,11 @@ export default styled(BeerRow)`
     padding: 0.5em;
   }
 
+  ${({ isEmpty }) => (isEmpty ? emptyStyles : null)};
+  ${({ isActive }) => (!isActive ? inactiveStyles : null)};
   ${({ theme }) => theme.beerRowOverrides || null};
+  ${({ theme, isEmpty }) => (isEmpty ? theme.beerRowEmptyOverrides || null : null)};
+  ${({ theme, isActive }) => (!isActive ? theme.beerRowInactiveOverrides || null : null)};
 `;
 
 BeerRow.propTypes = {
@@ -112,10 +145,10 @@ function BeerRow({
 }) {
   return (
     <div className={className}>
-      <BeerTap number={tapNumber} level={level} />
-      <BeerColor srm={srm} />
+      <BeerTap number={tapNumber} level={level} isActive={isActive} />
+      {isActive && <BeerColor srm={srm} />}
       <BeerTitle isActive={isActive}>
-        <h2>{isActive ? name : 'EMPTY'}</h2>
+        <h2>{isActive ? name : '[ disconnected ]'}</h2>
         {isActive && <h3>{beerStyle}</h3>}
       </BeerTitle>
 

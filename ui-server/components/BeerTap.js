@@ -26,7 +26,12 @@ const TapNumber = styled.div`
 const TapLevel = styled.div`
   ${typeSizeBodyXS}
   bottom: 0.25em;
+  display: ${({ isActive }) => (!isActive ? 'none' : 'block')};
+  padding: ${({ isEmpty }) => (isEmpty ? '0.25em 0' : null)};
   font-weight: 500;
+  color: ${({ isEmpty }) => (isEmpty ? 'white' : null)};
+  background-color: ${({ isEmpty }) => (isEmpty ? '#bf0000' : null)};
+  transform: ${({ isEmpty }) => (isEmpty ? 'rotate(-10deg) translateY(-60%)' : null)};
 `;
 
 const TapGauge = styled.aside`
@@ -62,11 +67,12 @@ export default styled(BeerTap)`
 
 BeerTap.propTypes = {
   className: PropTypes.string,
+  isActive: PropTypes.bool,
   level: PropTypes.number,
   number: PropTypes.number,
 };
 
-function BeerTap({ className, number, level }) {
+function BeerTap({ className, isActive, number, level }) {
   const levelPercentage = `${Math.round(level)}%`;
   return (
     <div className={className}>
@@ -74,7 +80,9 @@ function BeerTap({ className, number, level }) {
         <TapGauge levelPercentage={levelPercentage} />
         <IconKeg />
         <TapNumber>{number}</TapNumber>
-        <TapLevel>{level ? levelPercentage : 'EMPTY'}</TapLevel>
+        <TapLevel isEmpty={!level} isActive={isActive}>
+          {level ? levelPercentage : 'EMPTY'}
+        </TapLevel>
       </BeerTapFrame>
     </div>
   );
