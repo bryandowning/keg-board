@@ -7,7 +7,6 @@ import { grayDark } from '../styles/colors';
 export default styled.p`
   ${typeSizeBodyXS}
   display: none;
-  grid-area: notes;
   margin: ${em(8, 12)} 0 0;
   font-style: italic;
   color: ${grayDark};

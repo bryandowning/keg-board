@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import { typeSizeBodyS, typeSizeBodyM } from '../styles/typography';
 
 export default styled.div`
-  grid-area: title;
-
   h2 {
     ${typeSizeBodyM}
     margin: 0;

@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 
 import BeerTap from './BeerTap';
+import BeerColor from './BeerColor';
+import BeerTitle from './BeerTitle';
+import BeerNotes from './BeerNotes';
+import BeerStats from './BeerStats';
 
 import { grayLight } from '../styles/colors';
 
 export default styled.div`
   display: grid;
-  grid-template-areas: 'tap title stats';
+  grid-template-areas: 'tap color title stats';
   grid-template-rows: auto;
-  grid-template-columns: auto 3fr 1fr;
-  align-items: center;
+  grid-template-columns: auto auto 1fr auto;
   max-width: 1440px;
-  padding: 0.2em 0.25em;
+  padding: 0.5em;
   margin: 0 auto;
   background-color: ${({ isActive, isEmpty, theme }) =>
     !isActive || isEmpty ? theme.emptyRowBackgroundColor : 'transparent'};
@@ -22,14 +25,25 @@ export default styled.div`
     grid-area: tap;
   }
 
-  @media (min-width: 600px) {
-    grid-template-areas: 'tap title stats' '. notes notes';
-    grid-template-rows: 1fr auto;
-    grid-template-columns: auto 1fr 1.2fr;
+  ${BeerColor} {
+    grid-area: color;
   }
 
-  @media (min-width: 1024px) {
-    grid-template-columns: auto 1fr 2fr;
+  ${BeerTitle} {
+    grid-area: title;
+  }
+
+  ${BeerNotes} {
+    grid-area: notes;
+  }
+
+  ${BeerStats} {
+    grid-area: stats;
+  }
+
+  @media (min-width: 600px) {
+    grid-template-areas: 'tap color title stats' 'tap color notes stats';
+    grid-template-rows: auto auto;
   }
 
   ${({ theme }) => theme.beerRowOverrides || null};
