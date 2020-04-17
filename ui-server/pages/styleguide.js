@@ -9,6 +9,13 @@ import IconHop from '../components/SVG/IconHop';
 import IconScale from '../components/SVG/IconScale';
 import IconKeg from '../components/SVG/IconKeg';
 import IconPint from '../components/SVG/IconPint';
+import BeerRow from '../components/BeerRow';
+import BeerTap from '../components/BeerTap';
+import BeerColor from '../components/BeerColor';
+import BeerTitle from '../components/BeerTitle';
+import BeerNotes from '../components/BeerNotes';
+import BeerStats from '../components/BeerStats';
+import BeerStat from '../components/BeerStat';
 
 import { beerColors } from '../utils/beer';
 
@@ -25,6 +32,10 @@ import {
 
 const StyledGuide = styled.div`
   padding: 0 2em;
+
+  hr {
+    margin: 4em 0;
+  }
 
   figure {
     display: inline-block;
@@ -83,7 +94,7 @@ function Styleguide() {
       <h1>Style Guide</h1>
       <h2>Color</h2>
 
-      <h3>Default</h3>
+      <h3>Grayscale</h3>
 
       <ul>
         {colorsSorted.map(([key, value]) => (
@@ -94,7 +105,7 @@ function Styleguide() {
       <h3>Beer Colors</h3>
       <ul>
         {beerColors.map((color, i) => (
-          <Swatch key={i + color} name={i} colorValue={color} />
+          <Swatch key={i + color} name={`${i} SRM`} colorValue={color} />
         ))}
       </ul>
 
@@ -154,6 +165,84 @@ function Styleguide() {
         The quick brown fox jumps over the lazy dog.
       </TypeSizeBodyXXL>
 
+      <hr />
+
+      <h2>Components</h2>
+
+      <h3>BeerRow</h3>
+      <BeerRow
+        {...{
+          tapNumber: 1,
+          srm: 14,
+          og: 1.05,
+          fg: 1.017,
+          ibu: 22,
+          notes: 'Smokey, amber German style of lager',
+          isEmpty: false,
+          isActive: true,
+          name: 'Cherrywood Smoked Lager',
+          beerStyle: 'Rauchbier',
+          level: 50,
+          abv: '4.4',
+          calories: '169',
+          balance: '0.44',
+        }}
+      />
+
+      <h3>BeerTap</h3>
+      <figure>
+        <BeerTap number={1} level={0} isActive />
+        <figcaption>Empty</figcaption>
+      </figure>
+
+      <figure>
+        <BeerTap number={5} level={33} isActive />
+        <figcaption>Single digit, 1/3 full</figcaption>
+      </figure>
+
+      <figure>
+        <BeerTap number={10} level={66} isActive />
+        <figcaption>Double digit, 2/3 full</figcaption>
+      </figure>
+
+      <figure>
+        <BeerTap number={999} level={100} isActive />
+        <figcaption>Triple digit, full</figcaption>
+      </figure>
+
+      <figure>
+        <BeerTap number={13} level={33} />
+        <figcaption>Double digit, inactive</figcaption>
+      </figure>
+
+      <h3>BeerColor</h3>
+      {beerColors.map((color, i) => (
+        <figure key={i + color}>
+          <BeerColor srm={i} />
+        </figure>
+      ))}
+
+      <h3>BeerTitle</h3>
+      <BeerTitle>
+        <h2>Beer Name</h2>
+        <h3>Beer Style</h3>
+      </BeerTitle>
+
+      <h3>BeerNotes</h3>
+      <BeerNotes>This is where you describe how the beer tastes.</BeerNotes>
+
+      <h3>BeerStats / BeerStat</h3>
+      <BeerStats>
+        <BeerStat icon="Boom">4.4% ABV</BeerStat>
+        <BeerStat icon="Hop">22 IBU</BeerStat>
+        <BeerStat icon="Flame">169 kCal</BeerStat>
+        <BeerStat icon="Scale">0.44 BU:GU</BeerStat>
+        <BeerStat icon="Grains">
+          1.050 OG
+          <br />
+          1.017 FG
+        </BeerStat>
+      </BeerStats>
       <hr />
 
       <h2>Credit</h2>
