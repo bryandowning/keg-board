@@ -25,11 +25,11 @@ export default {
         /* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
     `,
     inactiveRowTextColor: grayDark,
-    iconColorBoom: '#d67b07',
+    iconColorBoom: '#d66707',
     iconColorHop: '#13900c',
     iconColorFlame: '#bf0000',
     iconColorScale: '#751175',
-    iconColorGrains: '#b9bd03',
+    iconColorGrains: '#abad4b',
     bodyOverrides: css`
       background-color: #fcfcfc;
     `,
