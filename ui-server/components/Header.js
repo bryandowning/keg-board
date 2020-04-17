@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { vw } from '../styles/helpers';
-import { typeHeadingH3 } from '../styles/typography';
+import { typeHeadingH4 } from '../styles/typography';
 
 const StyledHeader = styled.header`
   position: relative;
@@ -10,28 +10,15 @@ const StyledHeader = styled.header`
   justify-content: center;
   height: ${vw(56)};
   min-height: 48px;
-  background-image: url('/images/headers/beer.jpg');
-  background-repeat: no-repeat;
-  background-position: center 85%;
-  background-size: cover;
+  background-color: #f7f7f7;
+  box-shadow: 0 1px 1px #ebebeb, 0 2px 3px #f7f7f7;
 
   h1 {
-    ${typeHeadingH3()}
-    position: relative;
-    z-index: 1;
+    ${typeHeadingH4()}
     margin: 0;
-    color: #470606;
-  }
-
-  &:after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: block;
-    content: '';
-    background-color: rgba(255, 230, 153, 0.4);
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   ${({ theme }) => theme.headerOverrides || null};

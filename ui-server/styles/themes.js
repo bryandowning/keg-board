@@ -8,7 +8,7 @@ export default {
   },
   light: {
     background: white,
-    foreground: black,
+    foreground: '#222',
     fontStackPrimary: css`
       font-family: 'Montserrat', system-ui, /* macOS 10.11-10.12 */ -apple-system,
         /* Windows 6+ */ 'Segoe UI', /* Android 4+ */ 'Roboto', /* Ubuntu 10.10+ */ 'Ubuntu',
