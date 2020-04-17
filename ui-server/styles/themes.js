@@ -6,7 +6,7 @@ export default {
     background: black,
     foreground: white,
   },
-  light: {
+  modern: {
     background: white,
     foreground: '#222',
     fontStackPrimary: css`
