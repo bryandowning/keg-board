@@ -4,11 +4,12 @@ import { vw } from '../styles/helpers';
 import { typeHeadingH4 } from '../styles/typography';
 
 const StyledHeader = styled.header`
+  ${typeHeadingH4()}
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: ${vw(56)};
+  height: 1.75em;
   min-height: 48px;
   background-color: #f7f7f7;
   box-shadow: 0 1px 1px #ebebeb, 0 2px 3px #f7f7f7;
@@ -22,7 +23,7 @@ const StyledHeader = styled.header`
   }
 
   @media (max-height: 480px) {
-    margin-bottom: 0.75em;
+    margin-bottom: 0.75rem;
   }
 
   ${({ theme }) => theme.headerOverrides || null};
