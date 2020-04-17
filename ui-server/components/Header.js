@@ -21,6 +21,10 @@ const StyledHeader = styled.header`
     letter-spacing: 1px;
   }
 
+  @media (max-height: 480px) {
+    margin-bottom: 0.75em;
+  }
+
   ${({ theme }) => theme.headerOverrides || null};
 `;
 
