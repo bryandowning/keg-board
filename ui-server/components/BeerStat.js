@@ -28,14 +28,9 @@ const StatValue = styled.div`
 export default styled(BeerStat)`
   ${typeSizeBodyXS}
   ${({ theme }) => theme.fontStackMono || null};
-  display: ${({ featured }) => (featured ? 'block' : 'none')};
   font-weight: 500;
   line-height: ${em(16, 12)};
   white-space: nowrap;
-
-  @media (min-width: 600px) {
-    display: block;
-  }
 
   ${({ theme }) => theme.beerStatOverrides || null};
 `;
@@ -43,7 +38,6 @@ export default styled(BeerStat)`
 BeerStat.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  featured: PropTypes.bool,
   icon: PropTypes.oneOf(Object.keys(iconMapping)),
 };
 

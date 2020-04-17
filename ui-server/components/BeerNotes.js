@@ -6,14 +6,10 @@ import { grayDark } from '../styles/colors';
 
 export default styled.p`
   ${typeSizeBodyXS}
-  display: none;
+  max-width: ${em(340, 12)};
   margin: ${em(8, 12)} 0 0;
   font-style: italic;
   color: ${grayDark};
-
-  @media (min-width: 600px) {
-    display: block;
-  }
 
   ${({ theme }) => theme.beerNotesOverrides || null};
 `;
