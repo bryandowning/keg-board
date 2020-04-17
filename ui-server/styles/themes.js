@@ -30,6 +30,12 @@ export default {
     iconColorFlame: '#bf0000',
     iconColorScale: '#751175',
     iconColorGrains: '#b9bd03',
+    bodyOverrides: css`
+      background-color: #fcfcfc;
+    `,
+    beerRowOverrides: css`
+      background-color: ${white};
+    `,
   },
   chalk: {
     background: chalkboard,
