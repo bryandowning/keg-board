@@ -65,6 +65,19 @@ export default {
         background-color: #00699a;
       }
     `,
+    beerTitleOverrides: css`
+      h2 {
+        color: #ff2fb4;
+      }
+
+      h3 {
+        color: #ff85d3;
+      }
+    `,
+    beerNotesOverrides: css`
+      font-style: normal;
+      color: #ffdef3;
+    `,
   },
   chalk: {
     background: chalkboard,
