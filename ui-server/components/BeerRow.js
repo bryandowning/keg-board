@@ -45,7 +45,7 @@ export default styled(BeerRow)`
   grid-template-areas: 'title title title' 'notes notes notes' 'tap color stats';
   grid-template-rows: auto auto auto;
   grid-template-columns: auto auto 1fr;
-  max-width: calc(300px + ${vw(75)});
+  max-width: calc(300px + ${vw(75, 375)});
   padding: 1em 0.5em;
   margin: 0 auto;
   box-shadow: 0 1px 1px #ebebeb, 0 2px 3px #f7f7f7;
@@ -77,7 +77,7 @@ export default styled(BeerRow)`
     grid-template-areas: 'tap color title' 'tap color notes' 'stats stats stats';
     grid-template-rows: auto auto auto;
     grid-template-columns: auto auto 1fr;
-    max-width: calc(420px + ${vw(100)});
+    max-width: calc(420px + ${vw(100, 600)});
 
     ${BeerNotes} {
       margin-bottom: 0;
