@@ -6,8 +6,6 @@ import BeerTitle from './BeerTitle';
 import BeerNotes from './BeerNotes';
 import BeerStats from './BeerStats';
 
-import { grayLight } from '../styles/colors';
-
 export default styled.div`
   display: grid;
   grid-template-areas: 'tap color title stats';
@@ -16,10 +14,8 @@ export default styled.div`
   max-width: 1440px;
   padding: 0.5em;
   margin: 0 auto;
-  background-color: ${({ isActive, isEmpty, theme }) =>
-    !isActive || isEmpty ? theme.emptyRowBackgroundColor : 'transparent'};
-  border-bottom: 1px solid ${grayLight};
-  opacity: ${({ isActive }) => (!isActive ? 0.5 : 1)};
+  box-shadow: 0 1px 1px #ebebeb, 0 2px 3px #f7f7f7;
+  opacity: ${({ isActive, isEmpty }) => (!isActive || isEmpty ? 0.35 : 1)};
 
   ${BeerTap} {
     grid-area: tap;

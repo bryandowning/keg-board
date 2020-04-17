@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { black, chalkboard, white, grayMedium, grayLight, grayDark } from './colors';
+import { black, chalkboard, white, grayMedium, grayDark } from './colors';
 
 export default {
   dark: {
@@ -24,7 +24,6 @@ export default {
         /* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
         /* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
     `,
-    emptyRowBackgroundColor: grayLight,
     inactiveRowTextColor: grayDark,
     iconColorBoom: '#d67b07',
     iconColorHop: '#13900c',
@@ -36,7 +35,6 @@ export default {
     background: chalkboard,
     foreground: white,
     fontStackPrimary: 'Kalam',
-    emptyRowBackgroundColor: '#111',
     inactiveRowTextColor: grayMedium,
     bodyOverrides: css`
       background-image: url('/images/background-chalk.jpg');
