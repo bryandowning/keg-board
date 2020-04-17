@@ -41,6 +41,7 @@ const TapGauge = styled.aside`
   right: 17%;
   bottom: 3%;
   left: 16%;
+  display: ${({ isActive }) => (!isActive ? 'none' : 'block')};
 
   &:after {
     position: absolute;
@@ -80,7 +81,7 @@ function BeerTap({ className, isActive, number, level }) {
   return (
     <div className={className}>
       <BeerTapFrame>
-        <TapGauge levelPercentage={levelPercentage} />
+        <TapGauge levelPercentage={levelPercentage} isActive={isActive} />
         <IconKeg />
         <TapNumber>{number}</TapNumber>
         <TapLevel isEmpty={!level} isActive={isActive}>
