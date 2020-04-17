@@ -79,7 +79,6 @@ export default {
       }
     `,
     beerNotesOverrides: css`
-      font-style: normal;
       color: #ffdef3;
     `,
   },
