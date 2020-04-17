@@ -20,6 +20,8 @@ export default {
         /* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
         /* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
     `,
+    linkColor: '#0076ad',
+    linkColorHover: 'black',
     iconColorBoom: '#d66707',
     iconColorHop: '#13900c',
     iconColorFlame: '#bf0000',
@@ -55,6 +57,8 @@ export default {
         /* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
         /* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
     `,
+    linkColor: '#00aeff',
+    linkColorHover: '#ff2fb4',
     iconColorBoom: '#ff902f',
     iconColorHop: '#0eff00',
     iconColorFlame: '#ff2323',
@@ -97,6 +101,8 @@ export default {
         /* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
         /* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
     `,
+    linkColor: '#81d7ff',
+    linkColorHover: '#ff96d9',
     iconColorBoom: '#f4b781',
     iconColorHop: '#7aaf77',
     iconColorFlame: '#c75f5f',

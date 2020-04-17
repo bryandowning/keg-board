@@ -46,6 +46,21 @@ export default createGlobalStyle`
     ${typeHeadingH4}
   }
 
+  /* LINKS */
+  a {
+    color: ${({ theme }) => theme.linkColor};
+    text-decoration: none;
+    outline: 0;
+
+    &:hover {
+      color: ${({ theme }) => theme.linkColorHover};
+    }
+
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
   /* LISTS */
   ul {
     padding: 0;
